@@ -44,13 +44,31 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Position_2"",
+                    ""type"": ""Value"",
+                    ""id"": ""2f659638-0c19-458d-b5f4-9655671844bf"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotation_2"",
+                    ""type"": ""Value"",
+                    ""id"": ""81c9b2aa-e42a-4eb8-950a-2c62b2567b00"",
+                    ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""826b8d67-d48c-4c27-8901-406134ff5e5e"",
-                    ""path"": ""<XRViveTracker>{Camera}/devicePosition"",
+                    ""path"": ""<XRViveTracker>{Waist}/devicePosition"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -61,11 +79,33 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f6c84b45-9e5d-4a59-bf40-381933d2d23c"",
-                    ""path"": ""<XRViveTracker>{Camera}/deviceRotation"",
+                    ""path"": ""<XRViveTracker>{Waist}/deviceRotation"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotation_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62a66c83-1b57-4df4-96f6-e31eb271b5f1"",
+                    ""path"": ""<XRViveTracker>{Chest}/devicePosition"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Position_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1eb7537-e0ee-48d2-aa86-bf0513f4a7ec"",
+                    ""path"": ""<XRViveTracker>{Chest}/deviceRotation"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -78,6 +118,8 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         m_ViveTracker = asset.FindActionMap("ViveTracker", throwIfNotFound: true);
         m_ViveTracker_Position_1 = m_ViveTracker.FindAction("Position_1", throwIfNotFound: true);
         m_ViveTracker_Rotation_1 = m_ViveTracker.FindAction("Rotation_1", throwIfNotFound: true);
+        m_ViveTracker_Position_2 = m_ViveTracker.FindAction("Position_2", throwIfNotFound: true);
+        m_ViveTracker_Rotation_2 = m_ViveTracker.FindAction("Rotation_2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +183,16 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
     private List<IViveTrackerActions> m_ViveTrackerActionsCallbackInterfaces = new List<IViveTrackerActions>();
     private readonly InputAction m_ViveTracker_Position_1;
     private readonly InputAction m_ViveTracker_Rotation_1;
+    private readonly InputAction m_ViveTracker_Position_2;
+    private readonly InputAction m_ViveTracker_Rotation_2;
     public struct ViveTrackerActions
     {
         private @TrackerInputAction m_Wrapper;
         public ViveTrackerActions(@TrackerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Position_1 => m_Wrapper.m_ViveTracker_Position_1;
         public InputAction @Rotation_1 => m_Wrapper.m_ViveTracker_Rotation_1;
+        public InputAction @Position_2 => m_Wrapper.m_ViveTracker_Position_2;
+        public InputAction @Rotation_2 => m_Wrapper.m_ViveTracker_Rotation_2;
         public InputActionMap Get() { return m_Wrapper.m_ViveTracker; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +208,12 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
             @Rotation_1.started += instance.OnRotation_1;
             @Rotation_1.performed += instance.OnRotation_1;
             @Rotation_1.canceled += instance.OnRotation_1;
+            @Position_2.started += instance.OnPosition_2;
+            @Position_2.performed += instance.OnPosition_2;
+            @Position_2.canceled += instance.OnPosition_2;
+            @Rotation_2.started += instance.OnRotation_2;
+            @Rotation_2.performed += instance.OnRotation_2;
+            @Rotation_2.canceled += instance.OnRotation_2;
         }
 
         private void UnregisterCallbacks(IViveTrackerActions instance)
@@ -172,6 +224,12 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
             @Rotation_1.started -= instance.OnRotation_1;
             @Rotation_1.performed -= instance.OnRotation_1;
             @Rotation_1.canceled -= instance.OnRotation_1;
+            @Position_2.started -= instance.OnPosition_2;
+            @Position_2.performed -= instance.OnPosition_2;
+            @Position_2.canceled -= instance.OnPosition_2;
+            @Rotation_2.started -= instance.OnRotation_2;
+            @Rotation_2.performed -= instance.OnRotation_2;
+            @Rotation_2.canceled -= instance.OnRotation_2;
         }
 
         public void RemoveCallbacks(IViveTrackerActions instance)
@@ -193,5 +251,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
     {
         void OnPosition_1(InputAction.CallbackContext context);
         void OnRotation_1(InputAction.CallbackContext context);
+        void OnPosition_2(InputAction.CallbackContext context);
+        void OnRotation_2(InputAction.CallbackContext context);
     }
 }

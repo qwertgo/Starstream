@@ -22,13 +22,31 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Position_2",
+                    "type": "Value",
+                    "id": "2f659638-0c19-458d-b5f4-9655671844bf",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotation_2",
+                    "type": "Value",
+                    "id": "81c9b2aa-e42a-4eb8-950a-2c62b2567b00",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "826b8d67-d48c-4c27-8901-406134ff5e5e",
-                    "path": "<XRViveTracker>{Camera}/devicePosition",
+                    "path": "<XRViveTracker>{Waist}/devicePosition",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -39,11 +57,33 @@
                 {
                     "name": "",
                     "id": "f6c84b45-9e5d-4a59-bf40-381933d2d23c",
-                    "path": "<XRViveTracker>{Camera}/deviceRotation",
+                    "path": "<XRViveTracker>{Waist}/deviceRotation",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotation_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62a66c83-1b57-4df4-96f6-e31eb271b5f1",
+                    "path": "<XRViveTracker>{Chest}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1eb7537-e0ee-48d2-aa86-bf0513f4a7ec",
+                    "path": "<XRViveTracker>{Chest}/deviceRotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation_2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
