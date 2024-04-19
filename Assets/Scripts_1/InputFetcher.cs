@@ -5,11 +5,17 @@ using UnityEngine.InputSystem;
 
 public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerActions
 {
-    [HideInInspector] public Vector2 planarVelocity;
-    [HideInInspector] public float angluarVelocity;
+    private enum InputMethod {ViveTracker, Keyboard}
 
-    [SerializeField] private float deadZoneWidth = .2f;
-    [SerializeField] private float inputMultiplier = 2.5f;
+    [HideInInspector] public Vector2 planarVelocity;
+    [HideInInspector] public float angularVelocity;
+
+    [SerializeField] private InputMethod inputMethod;
+
+    [SerializeField] private float stickDeadZone = .05f;
+    [SerializeField] private float headDeadZone = .01f;
+    [SerializeField] private float stickInputMultiplier = 2.5f;
+    [SerializeField] private float headInputMultiplier = 10;
 
     [SerializeField] private Transform headTracker;
     [SerializeField] private Transform stickTracker;
@@ -17,7 +23,9 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     [SerializeField] private Material greenMat;
     [SerializeField] private PlayerController playerController;
 
-    private Vector3 startPosition;
+    private Vector3 stickStartPosition;
+    private Vector3 headStartPosition;
+    private Quaternion headStartRotation;
     private TrackerInputAction controls;
 
 
@@ -31,27 +39,75 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
             controls.ViveTracker.SetCallbacks(this);
         }
         yield return new WaitForSeconds(3);
-        startPosition = stickTracker.position;
+
+        stickStartPosition = stickTracker.position;
+        headStartPosition = headTracker.position;
+        headStartRotation = headTracker.rotation;
+
         inputVisualization.GetComponent<MeshRenderer>().material = greenMat;
         GetComponentInChildren<MeshRenderer>().material = greenMat;
 
         playerController.inputFetcher = this;
         playerController.Go();
+
+        if (inputMethod == InputMethod.ViveTracker)
+            StartCoroutine(TrackerUpdate());
+        else
+            StartCoroutine(KeyboardUpdate());
     }
 
-    void Update()
+    private IEnumerator TrackerUpdate()
     {
-        float xOffset = (stickTracker.position.x - startPosition.x);
-        xOffset = Mathf.Clamp01(Mathf.Abs(xOffset * inputMultiplier) - deadZoneWidth) * Mathf.Sign(xOffset);
+        while (enabled)
+        {
+            float x = stickTracker.position.x - stickStartPosition.x;
+            float y = stickTracker.position.y - stickStartPosition.y;
 
-        float yOffset =  stickTracker.position.y - startPosition.y;
-        yOffset = Mathf.Clamp01(Mathf.Abs(yOffset * inputMultiplier) - deadZoneWidth) * Mathf.Sign(yOffset);
+            planarVelocity = new Vector2(x, y);
 
-        planarVelocity = new Vector2(xOffset, yOffset);
-        inputVisualization.position = (Vector3)planarVelocity + new Vector3(0, 2, 0);
+            if (planarVelocity.magnitude < stickDeadZone)
+                planarVelocity = Vector2.zero;
+            else
+                planarVelocity = (planarVelocity.magnitude - stickDeadZone) * stickInputMultiplier * planarVelocity.normalized;
+
+            x = headTracker.position.x - headStartPosition.x;
+            if (Mathf.Abs(x) < headDeadZone)
+                angularVelocity = 0;
+            else
+                angularVelocity = Mathf.Clamp((Mathf.Abs(x) - headDeadZone) * Mathf.Sign(x) * headInputMultiplier, -1, 1);
+
+            yield return null;
+        }
     }
 
-    #region Input
+    private IEnumerator KeyboardUpdate()
+    {
+        while (enabled)
+        {
+            planarVelocity = Vector2.zero;
+
+            if (Input.GetKey(KeyCode.W))
+                planarVelocity += Vector2.up;
+            else if (Input.GetKey(KeyCode.S))
+                planarVelocity += Vector2.down;
+
+            if (Input.GetKey(KeyCode.D))
+                planarVelocity += Vector2.right;
+            else if (Input.GetKey(KeyCode.A))
+                planarVelocity += Vector2.left;
+
+            if (Input.GetKey(KeyCode.E))
+                angularVelocity = 1;
+            else if (Input.GetKey(KeyCode.Q))
+                angularVelocity = -1;
+            else
+                angularVelocity = 0;
+
+            yield return null;
+        }
+    }
+
+    #region Fetch Input from Vive Trackers
     public void OnPosition_1(InputAction.CallbackContext context)
     {
         headTracker.position = context.ReadValue<Vector3>() ;

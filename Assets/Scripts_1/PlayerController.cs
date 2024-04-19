@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             Accelerate();
             PlanarMovement();
+            Rotation();
             yield return null;
         }
 
@@ -37,8 +38,8 @@ public class PlayerController : MonoBehaviour
 
     private void Accelerate()
     {
-        //currentSpeed += Time.deltaTime * forwardAcceleration;
-        currentSpeed = Mathf.Max(currentSpeed);
+        currentSpeed += Time.deltaTime * forwardAcceleration;
+        currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
         rb.velocity = transform.forward * currentSpeed;
     }
@@ -50,6 +51,6 @@ public class PlayerController : MonoBehaviour
 
     private void Rotation()
     {
-
+        rb.rotation *= Quaternion.Euler(inputFetcher.angularVelocity * rotationSpeed * Vector3.up);
     }
 }
