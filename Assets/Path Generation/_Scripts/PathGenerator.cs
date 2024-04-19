@@ -7,18 +7,17 @@ public class PathGenerator : MonoBehaviour
 {
     [SerializeField]int pathLeght = 10;
     [SerializeField]List<PathSection> pathSectionPrefabs;
-    List<PathSection> availablePathSections = new();
+    [SerializeField]PathSection startSection;
+    public List<PathSection> availablePathSections = new();
     PathSection currentSection;
     int pathTilt = 0;
-
-    List<PathSection> leftSections;
-    List<PathSection> rightSections;
+    int currentAngle;
+    Queue<PathSection> activePaths = new();
     void Start()
     {
-        // leftSections.AddRange(pathSectionPrefabs.FindAll(section => section.GetDirection() == TransitionDirection.Left));
-        // rightSections.AddRange(pathSectionPrefabs.FindAll(section => section.GetDirection() == TransitionDirection.Left));
         availablePathSections.AddRange(pathSectionPrefabs);
-        ComposePath();
+        //ComposePath();
+        StartCoroutine(GenerateTest());
     }
     void ComposePath()
     {
@@ -29,79 +28,78 @@ public class PathGenerator : MonoBehaviour
     }
     void GenerateSection()
     {
-        CalculateAvailablePaths();
-
-        PathSection nextSection = Instantiate(availablePathSections[Random.Range(0,availablePathSections.Count)]);
         if(currentSection == null)
         {
-            nextSection.transform.eulerAngles = new Vector3(0,90,0);
-            currentSection = nextSection;
+            currentSection = Instantiate(startSection);
+            activePaths.Enqueue(currentSection);
+            currentSection.transform.eulerAngles = new Vector3(0,90,0);
         }
-            
-        else
+        CalculateAvailablePaths();
+        PathSection nextSection = Instantiate(availablePathSections[Random.Range(0,availablePathSections.Count)]);    
+        
+        
+        switch (currentSection.GetDirection())
         {
-            switch (currentSection.GetDirection())
-            {
-                case TransitionDirection.Left:
-                    TransformSection(-60,currentSection.transform.position,currentSection.transform.rotation,nextSection);
-                    pathTilt --;
-                    break;
-                case TransitionDirection.Straight:
-                    TransformSection(0,currentSection.transform.position,currentSection.transform.rotation,nextSection);
-                    pathTilt = 0;
-                    break;
-                case TransitionDirection.Right:
-                    TransformSection(60,currentSection.transform.position,currentSection.transform.rotation,nextSection);
-                    pathTilt ++;
-                    break;
-            }
+            case TransitionDirection.Left:
+                TransformSection(-60,currentSection,nextSection);
+                pathTilt --;
+                break;
+            case TransitionDirection.Straight:
+                TransformSection(0,currentSection,nextSection);
+                break;
+            case TransitionDirection.Right:
+                TransformSection(60,currentSection,nextSection);
+                pathTilt ++;
+                break;
+        }
+        if(!activePaths.Contains(currentSection))
+            activePaths.Enqueue(currentSection);
+        
+        if(activePaths.Count > 3)
+        {
+            Destroy(activePaths.Peek().gameObject);
+            activePaths.Dequeue();
         }
     }
-    void TransformSection(int angle,Vector3 posCurSec, Quaternion rotCurSec, PathSection nextSection)
+    void TransformSection(int angle, PathSection curSection, PathSection nextSection)
     {
-        Quaternion rotation = Quaternion.Euler(rotCurSec.eulerAngles + new Vector3(0, angle, 0));
-        nextSection.transform.rotation = rotation;
+        Quaternion rotation = Quaternion.Euler(0, angle, 0);
+        nextSection.transform.rotation = curSection.transform.rotation * rotation;
 
-        if(angle < 0 )
-        {
-            nextSection.transform.position = posCurSec;
-            nextSection.transform.position += new Vector3(-1.5f,0,0.866025404f);
-        }
+        Vector3 offset = Quaternion.Euler(0, angle, 0) * Vector3.forward * 1.73205080757f;
+        Debug.Log($"Rotation: {nextSection.transform.rotation.eulerAngles}, Offset: {offset}");
 
-        else if(angle == 0)
-        {
-            nextSection.transform.position = posCurSec;
-            nextSection.transform.position += new Vector3(0,0,0.866025404f*2);
-        }
+        nextSection.transform.position = curSection.transform.position + offset;
 
-        else if(angle > 0)
-        {
-            nextSection.transform.position = posCurSec;
-            nextSection.transform.position += new Vector3(1.5f,0,0.866025404f);
-        }
         currentSection = nextSection;
     }
 
     void CalculateAvailablePaths()
     {
-        switch (pathTilt)
+        Debug.Log($"pathTilt: {pathTilt}");
+        Debug.Log("current Directions: "+ currentSection.GetDirection());
+        if (pathTilt < 0)
         {
-            case -1:
-                availablePathSections.RemoveAll(sections => sections.GetDirection() == TransitionDirection.Left);
-                break;
-
-            case 0:
-                availablePathSections = pathSectionPrefabs;
-                break;
-
-            case 1:
-                availablePathSections.RemoveAll(sections => sections.GetDirection() == TransitionDirection.Right);
-                break;
-
-            default:
-            Debug.LogError($"pathTilt out of boundaries: {pathTilt}");
-                break;
+            availablePathSections.RemoveAll(section => section.GetDirection() == TransitionDirection.Left);
+            Debug.Log("kicked left");
+        }
+        else if (pathTilt > 0)
+        {
+            availablePathSections.RemoveAll(section => section.GetDirection() == TransitionDirection.Right);
+            Debug.Log("kicked right");
+        }
+        else
+        {
+            availablePathSections = new List<PathSection>(pathSectionPrefabs);
+            Debug.Log("no pathTilt change");
+        }
+    }
+    IEnumerator GenerateTest()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(2);
+            GenerateSection();
         }
     }
 }
-
