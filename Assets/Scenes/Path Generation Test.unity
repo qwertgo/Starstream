@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generationMode: 1
   pathLeght: 100
-  interval: 0.5
+  interval: 0.1
   startDestroyPathLength: 0
   pathSectionPrefabs:
   - {fileID: 4754757079993354382, guid: 458d4db27f8c07f40bad0679b86a4f05, type: 3}

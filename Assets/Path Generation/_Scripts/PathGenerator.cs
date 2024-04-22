@@ -66,6 +66,7 @@ public class PathGenerator : MonoBehaviour
             lastSection.transform.eulerAngles = new Vector3(0, 90, 0);
             pathDirection = PathDirection.Straight;
             AddToFolder(lastSection);
+            lastSection.transform.localPosition = Vector3.zero;
             return;
         }
 
