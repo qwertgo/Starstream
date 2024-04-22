@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         while (enabled)
         {
             Accelerate();
-            PlanarMovement();
+            //PlanarMovement();
             Rotation();
             yield return null;
         }
@@ -51,6 +51,9 @@ public class PlayerController : MonoBehaviour
 
     private void Rotation()
     {
-        rb.rotation *= Quaternion.Euler(inputFetcher.angularVelocity * rotationSpeed * Vector3.up);
+        //Debug.Log(inputFetcher.planarVelocity.x);
+        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * transform.up);
+        rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * Vector3.right);
+        rb.rotation *= rotation;
     }
 }
