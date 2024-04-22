@@ -363,16 +363,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c12bcff728ca3042b88245fe6844390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDestroyPathLength: 5
   generationMode: 1
-  pathLeght: 10
+  pathLeght: 100
   interval: 0.5
+  startDestroyPathLength: 0
   pathSectionPrefabs:
   - {fileID: 4754757079993354382, guid: 458d4db27f8c07f40bad0679b86a4f05, type: 3}
   - {fileID: 2082798874574921172, guid: c1b8c9741e4ebec4e9bedba80b2ff46a, type: 3}
   - {fileID: 2082798874574921172, guid: bae055931bf32204c98d09d0eee127d6, type: 3}
   startSection: {fileID: 4754757079993354382, guid: 458d4db27f8c07f40bad0679b86a4f05,
     type: 3}
+  availablePathSections: []
 --- !u!4 &1653629960
 Transform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using NaughtyAttributes;
+using System.IO;
 
 public enum TransitionDirection {Left, Straight, Right}
 public enum PathDirection {Left, Straight, Right}
@@ -10,18 +11,18 @@ public enum GenerationMode {InstantAmount, TileForTile}
 public class PathGenerator : MonoBehaviour
 {
     [Header("For Test Purposes")]
-    [SerializeField]int startDestroyPathLength = 0;
     [SerializeField]GenerationMode generationMode;
     [ShowIf("generationMode", GenerationMode.InstantAmount)][SerializeField]int pathLeght = 10;
     [ShowIf("generationMode", GenerationMode.TileForTile)][SerializeField]float interval = 2;
+    [ShowIf("generationMode", GenerationMode.TileForTile)][SerializeField]int startDestroyPathLength = 0;
     [Header("")]
 
-    [SerializeField]PathSection[] pathSectionPrefabs;
+    [SerializeField]List<PathSection> pathSectionPrefabs;
     [SerializeField]PathSection startSection;
-    List<PathSection> availablePathSections = new();
+    public List<PathSection> availablePathSections = new();
     List<PathSection> leftSections;
     List<PathSection> rightSections;
-    PathSection currentSection;
+    PathSection lastSection;
     Queue<PathSection> activePaths = new();
     float hexLength = 0.8660254f;
     [ShowNonSerializedField] PathDirection pathDirection = PathDirection.Straight;
@@ -58,21 +59,18 @@ public class PathGenerator : MonoBehaviour
 //=============== PATH GENERATION ===============
     void GenerateSection() //Creates a new path section to be placed 
     {
-        if(currentSection == null)
+        if (lastSection == null)
         {
-            currentSection = Instantiate(startSection);
-            activePaths.Enqueue(currentSection);
-            currentSection.transform.eulerAngles = new Vector3(0,90,0);
+            lastSection = Instantiate(startSection);
+            activePaths.Enqueue(lastSection);
+            lastSection.transform.eulerAngles = new Vector3(0, 90, 0);
             pathDirection = PathDirection.Straight;
-            AddToFolder(currentSection);
+            AddToFolder(lastSection);
             return;
         }
-        
-        PathSection nextSection = Instantiate(availablePathSections[Random.Range(0,availablePathSections.Count)]);    
-        AddToFolder(nextSection);
-        
+
         int angle = 0;
-        switch (currentSection.GetDirection())
+        switch (lastSection.GetDirection())
         {
             case TransitionDirection.Left:
                 angle = -60;
@@ -92,24 +90,28 @@ public class PathGenerator : MonoBehaviour
                 break;
         }
 
-        TransformSection(angle,currentSection,nextSection);
         CalculateAvailablePaths();
 
-        if(!activePaths.Contains(currentSection))
-            activePaths.Enqueue(currentSection);
-        
-        if(activePaths.Count > startDestroyPathLength && startDestroyPathLength > 0 )
+        PathSection currentSection = Instantiate(availablePathSections[Random.Range(0, availablePathSections.Count)]);
+        AddToFolder(currentSection);
+
+        TransformSection(angle, lastSection, currentSection);
+
+        if (!activePaths.Contains(lastSection))
+            activePaths.Enqueue(lastSection);
+
+        if (activePaths.Count > startDestroyPathLength && startDestroyPathLength > 0 && generationMode == GenerationMode.TileForTile)
         {
             Destroy(activePaths.Peek().gameObject);
             activePaths.Dequeue();
         }
     }
 
-    void TransformSection(int angle, PathSection curSection, PathSection nextSection) // Transforms upcoming section based on the current one
+    void TransformSection(int angle, PathSection lastSection, PathSection curSection) // Transforms upcoming section based on the current one
     {
         Vector3 offset = Vector3.zero;
         Quaternion rotation = Quaternion.Euler(0, angle, 0);
-        nextSection.transform.rotation = curSection.transform.rotation * rotation;
+        curSection.transform.rotation = lastSection.transform.rotation * rotation;
 
         switch (pathDirection)
         {
@@ -123,27 +125,35 @@ public class PathGenerator : MonoBehaviour
                 offset = new Vector3(1.5f,0,hexLength);
                 break;
         }
-        nextSection.transform.position = curSection.transform.position + offset;
-        currentSection = nextSection;
+        curSection.transform.position = lastSection.transform.position + offset;
+        this.lastSection = curSection;
     }
 
     void CalculateAvailablePaths() //Defines possible section types for the upcoming section
     {
-        Debug.Log("current Directions: "+ currentSection.GetDirection());
-        if (currentSection.GetDirection() == TransitionDirection.Left)
+        Debug.Log("current Directions: "+ lastSection.GetDirection());
+        
+        if(pathDirection == PathDirection.Straight)
+        {
+            availablePathSections.Clear();
+            availablePathSections.AddRange(pathSectionPrefabs);
+            Debug.Log("Path Straight");
+        }
+
+        if (lastSection.GetDirection() == TransitionDirection.Left)
         {
             availablePathSections.RemoveAll(section => section.GetDirection() == TransitionDirection.Left);
             if(!availablePathSections.Intersect(rightSections).Any())
                 availablePathSections.AddRange(rightSections);
-
+    
             Debug.Log("kicked left");
         }
-        else if (currentSection.GetDirection() == TransitionDirection.Right)
+        else if (lastSection.GetDirection() == TransitionDirection.Right)
         {
             availablePathSections.RemoveAll(section => section.GetDirection() == TransitionDirection.Right);
             if(!availablePathSections.Intersect(leftSections).Any())
                 availablePathSections.AddRange(leftSections);
-
+            
             Debug.Log("kicked right");
         }
     }
