@@ -108,17 +108,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         planarVelocity = magnitude * magnitude * planarVelocity.normalized;
     }
 
-    private void test()
-    {
-        if (planarVelocity.magnitude < stickDeadZone)
-            planarVelocity = Vector2.zero;
-        else
-        {
-            planarVelocity = (planarVelocity.magnitude - stickDeadZone) * stickInputMultiplier * planarVelocity.normalized;
-            planarVelocity = Vector2.ClampMagnitude(planarVelocity, 1);
-        }
-    }
-
     //Only meant for debugging (its really bare bones)
     private IEnumerator KeyboardFetcher()
     {
