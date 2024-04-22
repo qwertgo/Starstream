@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerActions
 {
-    private enum InputMethod {ViveTracker, Keyboard}
+    private enum InputMethod {SingleViveTracker, MultipleViveTracker, Keyboard}
 
     [HideInInspector] public Vector2 planarVelocity;
     [HideInInspector] public float angularVelocity;
@@ -50,27 +50,29 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         playerController.inputFetcher = this;
         playerController.Go();
 
-        if (inputMethod == InputMethod.ViveTracker)
-            StartCoroutine(TrackerUpdate());
-        else
-            StartCoroutine(KeyboardUpdate());
+        switch (inputMethod)
+        {
+            case InputMethod.SingleViveTracker:
+                StartCoroutine(SingleTrackerFetcher());
+                break;
+            case InputMethod.MultipleViveTracker:
+                StartCoroutine(MultipleTrackerFetcher());
+                break;
+            default:
+                StartCoroutine(KeyboardFetcher());
+                break;
+        }
     }
 
-    private IEnumerator TrackerUpdate()
+    private IEnumerator SingleTrackerFetcher()
     {
         while (enabled)
         {
-            float x = stickTracker.position.x - stickStartPosition.x;
-            float y = stickTracker.position.y - stickStartPosition.y;
+            planarVelocity = stickTracker.position - stickStartPosition;
 
-            planarVelocity = new Vector2(x, y);
+            TrackerVelocityAdjustment();
 
-            if (planarVelocity.magnitude < stickDeadZone)
-                planarVelocity = Vector2.zero;
-            else
-                planarVelocity = (planarVelocity.magnitude - stickDeadZone) * stickInputMultiplier * planarVelocity.normalized;
-
-            x = headTracker.position.x - headStartPosition.x;
+            float x = headTracker.position.x - headStartPosition.x;
             if (Mathf.Abs(x) < headDeadZone)
                 angularVelocity = 0;
             else
@@ -80,7 +82,45 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         }
     }
 
-    private IEnumerator KeyboardUpdate()
+    private IEnumerator MultipleTrackerFetcher()
+    {
+        while (enabled)
+        {
+            float x = stickTracker.position.x - stickStartPosition.x;
+            float y = stickTracker.position.y - headTracker.position.y;
+
+            planarVelocity = new Vector2(x, y);
+
+            TrackerVelocityAdjustment();
+
+            yield return null;
+        }
+    }
+
+    private void TrackerVelocityAdjustment()
+    {
+        
+
+        planarVelocity = planarVelocity.magnitude  * stickInputMultiplier * planarVelocity.normalized;
+        planarVelocity = Vector2.ClampMagnitude(planarVelocity, 1);
+
+        float magnitude = planarVelocity.magnitude;
+        planarVelocity = magnitude * magnitude * planarVelocity.normalized;
+    }
+
+    private void test()
+    {
+        if (planarVelocity.magnitude < stickDeadZone)
+            planarVelocity = Vector2.zero;
+        else
+        {
+            planarVelocity = (planarVelocity.magnitude - stickDeadZone) * stickInputMultiplier * planarVelocity.normalized;
+            planarVelocity = Vector2.ClampMagnitude(planarVelocity, 1);
+        }
+    }
+
+    //Only meant for debugging (its really bare bones)
+    private IEnumerator KeyboardFetcher()
     {
         while (enabled)
         {

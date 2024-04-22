@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float planarSpeed = 2;
     [SerializeField] private float rotationSpeed = 90;
 
+    [SerializeField] private LayerMask tubeLayer;
+
     private Rigidbody rb;
     private float currentSpeed;
 
@@ -55,5 +57,19 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * transform.up);
         rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * Vector3.right);
         rb.rotation *= rotation;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer != 3)
+            return;
+
+        Vector3 contacPoint = collision.contacts[0].point;
+        Vector3 vecToContact = contacPoint - transform.position;
+        Physics.Raycast(transform.position, vecToContact.normalized, out RaycastHit hit, 20, tubeLayer);
+
+        Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
+        rb.rotation = Quaternion.LookRotation(newForward, transform.up);
+
     }
 }
