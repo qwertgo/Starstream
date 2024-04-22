@@ -8,7 +8,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     private enum InputMethod {SingleViveTracker, MultipleViveTracker, Keyboard}
 
     [HideInInspector] public Vector2 planarVelocity;
-    [HideInInspector] public float angularVelocity;
 
     [SerializeField] private InputMethod inputMethod;
 
@@ -24,8 +23,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     [SerializeField] private PlayerController playerController;
 
     private Vector3 stickStartPosition;
-    private Vector3 headStartPosition;
-    private Quaternion headStartRotation;
     private TrackerInputAction controls;
 
 
@@ -41,8 +38,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         yield return new WaitForSeconds(3);
 
         stickStartPosition = stickTracker.position;
-        headStartPosition = headTracker.position;
-        headStartRotation = headTracker.rotation;
 
         inputVisualization.GetComponent<MeshRenderer>().material = greenMat;
         GetComponentInChildren<MeshRenderer>().material = greenMat;
@@ -71,12 +66,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
             planarVelocity = stickTracker.position - stickStartPosition;
 
             TrackerVelocityAdjustment();
-
-            float x = headTracker.position.x - headStartPosition.x;
-            if (Mathf.Abs(x) < headDeadZone)
-                angularVelocity = 0;
-            else
-                angularVelocity = Mathf.Clamp((Mathf.Abs(x) - headDeadZone) * Mathf.Sign(x) * headInputMultiplier, -1, 1);
 
             yield return null;
         }
@@ -124,13 +113,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
                 planarVelocity += Vector2.right;
             else if (Input.GetKey(KeyCode.A))
                 planarVelocity += Vector2.left;
-
-            if (Input.GetKey(KeyCode.E))
-                angularVelocity = 1;
-            else if (Input.GetKey(KeyCode.Q))
-                angularVelocity = -1;
-            else
-                angularVelocity = 0;
 
             yield return null;
         }
