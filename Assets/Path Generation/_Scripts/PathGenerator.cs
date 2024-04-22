@@ -10,6 +10,9 @@ public enum PathDirection {Left, Straight, Right}
 public enum GenerationMode {InstantAmount, TileForTile}
 public class PathGenerator : MonoBehaviour
 {
+    [SerializeField]Transform playerTransform;
+    [SerializeField]Transform pathSectionsFolder;
+    [SerializeField]float sectionSizeFactor = 1;
     [Header("For Test Purposes")]
     [SerializeField]GenerationMode generationMode;
     [ShowIf("generationMode", GenerationMode.InstantAmount)][SerializeField]int pathLeght = 10;
@@ -32,6 +35,12 @@ public class PathGenerator : MonoBehaviour
         availablePathSections.AddRange(pathSectionPrefabs);
         leftSections = pathSectionPrefabs.Where(obj => obj.GetDirection() == TransitionDirection.Left).ToList();
         rightSections = pathSectionPrefabs.Where(obj => obj.GetDirection() == TransitionDirection.Right).ToList();
+
+        if(playerTransform != null && pathSectionsFolder != null)
+        {
+            pathSectionsFolder.position = playerTransform.position - Vector3.up*sectionSizeFactor/2;
+            pathSectionsFolder.rotation = playerTransform.rotation;
+        }
 
         if(generationMode == GenerationMode.InstantAmount)
             GenerateWholePath();
@@ -62,6 +71,12 @@ public class PathGenerator : MonoBehaviour
         if (lastSection == null)
         {
             lastSection = Instantiate(startSection);
+            lastSection.transform.localScale = new Vector3(
+                lastSection.transform.localScale.x * sectionSizeFactor,
+                lastSection.transform.localScale.y * sectionSizeFactor,
+                lastSection.transform.localScale.z * sectionSizeFactor
+            );
+
             activePaths.Enqueue(lastSection);
             lastSection.transform.eulerAngles = new Vector3(0, 90, 0);
             pathDirection = PathDirection.Straight;
@@ -94,6 +109,11 @@ public class PathGenerator : MonoBehaviour
         CalculateAvailablePaths();
 
         PathSection currentSection = Instantiate(availablePathSections[Random.Range(0, availablePathSections.Count)]);
+        currentSection.transform.localScale = new Vector3(
+                currentSection.transform.localScale.x * sectionSizeFactor,
+                currentSection.transform.localScale.y * sectionSizeFactor,
+                currentSection.transform.localScale.z * sectionSizeFactor
+            );
         AddToFolder(currentSection);
 
         TransformSection(angle, lastSection, currentSection);
@@ -117,13 +137,13 @@ public class PathGenerator : MonoBehaviour
         switch (pathDirection)
         {
             case PathDirection.Left:
-                offset = new Vector3(-1.5f,0,hexLength);
+                offset = new Vector3(-1.5f*sectionSizeFactor,0,hexLength*sectionSizeFactor);
                 break;
             case PathDirection.Straight:
-                offset = new Vector3(0,0,hexLength*2);
+                offset = new Vector3(0,0,hexLength*2*sectionSizeFactor);
                 break;
             case PathDirection.Right:
-                offset = new Vector3(1.5f,0,hexLength);
+                offset = new Vector3(1.5f*sectionSizeFactor,0,hexLength*sectionSizeFactor);
                 break;
         }
         curSection.transform.position = lastSection.transform.position + offset;

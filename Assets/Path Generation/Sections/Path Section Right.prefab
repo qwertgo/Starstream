@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1578295134690861781}
   - component: {fileID: 579624358389651162}
   - component: {fileID: 9213183429399718252}
-  - component: {fileID: 2769901483973925256}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2769901483973925256
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8805093850938273864}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1001 &6709198880704566618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 1854354687688631754, guid: 458d4db27f8c07f40bad0679b86a4f05,
         type: 3}
       propertyPath: m_Name
-      value: Path Section Base Variant 1
+      value: Path Section Right
       objectReference: {fileID: 0}
     - target: {fileID: 2009976610586068615, guid: 458d4db27f8c07f40bad0679b86a4f05,
         type: 3}
@@ -205,7 +181,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3233057243093999806, guid: 458d4db27f8c07f40bad0679b86a4f05, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2009976610586068615, guid: 458d4db27f8c07f40bad0679b86a4f05,
