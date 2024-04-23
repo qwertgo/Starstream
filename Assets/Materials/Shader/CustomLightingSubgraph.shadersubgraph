@@ -34,6 +34,9 @@
         },
         {
             "m_Id": "92d7e72c4aa2470a902bc6f8f75495e1"
+        },
+        {
+            "m_Id": "5ae70f56ff3b4f118a5e85f336678c9b"
         }
     ],
     "m_Dropdowns": [],
@@ -479,6 +482,9 @@
         },
         {
             "m_Id": "92d7e72c4aa2470a902bc6f8f75495e1"
+        },
+        {
+            "m_Id": "5ae70f56ff3b4f118a5e85f336678c9b"
         }
     ]
 }
@@ -560,6 +566,31 @@
     "m_Property": {
         "m_Id": "301e0e364b5e47f88d6fd59ae08ae067"
     }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.ShaderKeyword",
+    "m_ObjectId": "5ae70f56ff3b4f118a5e85f336678c9b",
+    "m_Guid": {
+        "m_GuidSerialized": "3e0309f2-3daf-40ea-88ac-76642e586249"
+    },
+    "m_Name": "Shadows Shadowmask",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Shadows Shadowmask",
+    "m_DefaultReferenceName": "_SHADOWS_SHADOWMASK",
+    "m_OverrideReferenceName": "SHADOWS_SHADOWMASK",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_KeywordType": 0,
+    "m_KeywordDefinition": 1,
+    "m_KeywordScope": 0,
+    "m_KeywordStages": 63,
+    "m_Entries": [],
+    "m_Value": 1,
+    "m_IsEditable": true
 }
 
 {

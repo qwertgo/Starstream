@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ModifiesLightingTest
+  m_Name: Crysteal
   m_Shader: {fileID: -6465566751694194690, guid: bbcc89e90eaa77141a487048d09168b9,
     type: 3}
   m_Parent: {fileID: 0}
@@ -64,13 +64,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ShadowAmount: 1
-    - _ShadowPosition: 0.376
-    - _ShadowWidth: 0.276
+    - _ShadowPosition: 0.206
+    - _ShadowWidth: 0.407
     - _Smoothness: 0
     - _step: 0.085
     m_Colors:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.37046102, g: 0.7075472, b: 0.5297472, a: 1}
-    - _LightColor: {r: 0.8353886, g: 0.9811321, b: 0.74510497, a: 1}
-    - _ShadowColor: {r: 0.11676746, g: 0.52998984, b: 0.6037736, a: 0.9019608}
+    - _BaseColor: {r: 0.9254902, g: 0.47247222, b: 0.2470588, a: 1}
+    - _LightColor: {r: 0.8512023, g: 0.90588236, b: 0.40392163, a: 1}
+    - _ShadowColor: {r: 0.5754717, g: 0.3020136, b: 0.078720205, a: 1}
   m_BuildTextureStacks: []

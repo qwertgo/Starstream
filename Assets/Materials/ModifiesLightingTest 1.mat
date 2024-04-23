@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ModifiesLightingTest
+  m_Name: ModifiesLightingTest 1
   m_Shader: {fileID: -6465566751694194690, guid: bbcc89e90eaa77141a487048d09168b9,
     type: 3}
   m_Parent: {fileID: 0}
@@ -63,14 +63,14 @@ Material:
     - _NormalStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadowAmount: 1
-    - _ShadowPosition: 0.376
-    - _ShadowWidth: 0.276
+    - _ShadowAmount: 0.544
+    - _ShadowPosition: 0.275
+    - _ShadowWidth: 0.5
     - _Smoothness: 0
     - _step: 0.085
     m_Colors:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.37046102, g: 0.7075472, b: 0.5297472, a: 1}
-    - _LightColor: {r: 0.8353886, g: 0.9811321, b: 0.74510497, a: 1}
-    - _ShadowColor: {r: 0.11676746, g: 0.52998984, b: 0.6037736, a: 0.9019608}
+    - _BaseColor: {r: 0.36862746, g: 0.44929558, b: 0.7058824, a: 1}
+    - _LightColor: {r: 0.40583822, g: 0.83563125, b: 0.9056604, a: 1}
+    - _ShadowColor: {r: 0.4573151, g: 0.20314167, b: 0.5188679, a: 0.7176471}
   m_BuildTextureStacks: []

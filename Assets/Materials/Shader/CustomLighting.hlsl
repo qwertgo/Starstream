@@ -25,6 +25,8 @@ struct CustomLightingData {
 
     //Baked Lighting
     float3 bakedGI;
+    float4 shadowMask;
+    float fogFactor;
 };
 
 // Translate a [0, 1] smoothness value to an exponent 
@@ -72,7 +74,7 @@ float3 CalculateCustomLighting(CustomLightingData d) {
     return d.albedo * intensity;
 #else
     // Get the main light. Located in URP/ShaderLibrary/Lighting.hlsl
-    Light mainLight =  GetMainLight(d.shadowCoord, d.positionWS, 1);
+    Light mainLight =  GetMainLight(d.shadowCoord, d.positionWS, d.shadowMask);
 
     // In mixed subtractive baked lights, the main light must be subtracted
     // from the bakedGI value. This function in URP/ShaderLibrary/Lighting.hlsl takes care of that.
@@ -86,10 +88,12 @@ float3 CalculateCustomLighting(CustomLightingData d) {
     // Shade additional cone and point lights. Functions in URP/ShaderLibrary/Lighting.hlsl
     uint numAdditionalLights = GetAdditionalLightsCount();
     for (uint lightI = 0; lightI < numAdditionalLights; lightI++) {
-        Light light = GetAdditionalLight(lightI, d.positionWS, 1);
+        Light light = GetAdditionalLight(lightI, d.positionWS, d.shadowMask);
         color += CustomLightHandling(d, light);
     }
     #endif
+
+    color = MixFog(color, d.fogFactor);
 
     return color;
 #endif
@@ -112,6 +116,8 @@ void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDi
     // In preview, there's no shadows or bakedGI
     d.shadowCoord = 0;
     d.bakedGI = 0;
+    d.shadowMask = 0;
+    d.fogFactor = 0;
 #else
     // Calculate the main light shadow coord
     // There are two types depending on if cascades are enabled
@@ -137,6 +143,13 @@ void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDi
     OUTPUT_SH(Normal, vertexSH);
     // This function calculates the final baked lighting from light maps or probes
     d.bakedGI = SAMPLE_GI(lightmapUV, vertexSH, Normal);
+
+    // This function calculates the shadow mask if baked shadows are enabled
+    d.shadowMask = SAMPLE_SHADOWMASK(lightmapUV);
+
+    // This returns 0 if fog is turned off
+    // It is not the same as the fog node in the shader graph
+    d.fogFactor = ComputeFogFactor(positionCS.z);
 #endif
 
     Color = CalculateCustomLighting(d);
