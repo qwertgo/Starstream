@@ -59,6 +59,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AmbientOcclusion: 1
     - _NormalStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -68,5 +69,5 @@ Material:
     m_Colors:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.6792453, g: 0.9056604, b: 0.72931784, a: 1}
-    - _ShadowColor: {r: 0.487953, g: 0.2776789, b: 0.9056604, a: 1}
+    - _ShadowColor: {r: 0.3143524, g: 0.27843142, b: 0.90588236, a: 1}
   m_BuildTextureStacks: []

@@ -19,8 +19,8 @@ MonoBehaviour:
     AfterOpaque: 0
     Source: 1
     NormalSamples: 1
-    Intensity: 0.5
-    DirectLightingStrength: 0.25
+    Intensity: 1
+    DirectLightingStrength: 0.256
     Radius: 0.25
     Samples: 0
     BlurQuality: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
   m_Name: Outlines
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   passMaterial: {fileID: 2100000, guid: 4a2d06352fb335d4d851839d61bcbbe1, type: 2}
   injectionPoint: 600
   requirements: 6
