@@ -205,6 +205,20 @@
                 },
                 "m_SlotId": 1
             }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "fbf25ba6534d4422af944164a20e8431"
+                },
+                "m_SlotId": 8
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "10ca6af2697c4e029a3c0641bf4c5e82"
+                },
+                "m_SlotId": 2
+            }
         }
     ],
     "m_VertexContext": {
@@ -309,6 +323,9 @@
     "m_Slots": [
         {
             "m_Id": "e84a37160f9a455699896742c1ce282e"
+        },
+        {
+            "m_Id": "3d4dc9ff202c4d14b6a67be866b3804a"
         }
     ],
     "synonyms": [],
@@ -445,6 +462,21 @@
     "m_Property": {
         "m_Id": "bb1afca792e04fea9daf4169241c6846"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "3d4dc9ff202c4d14b6a67be866b3804a",
+    "m_Id": 2,
+    "m_DisplayName": "Fog",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Fog",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
@@ -1231,6 +1263,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "f4be9efc4db14e7e8af9f1a8a924d8e5",
+    "m_Id": 8,
+    "m_DisplayName": "Fog",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Fog",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
     "m_ObjectId": "f94f137a37894f769652e5f547bfcdab",
     "m_Id": 5,
@@ -1294,6 +1341,9 @@
         },
         {
             "m_Id": "d496f72efdae481596afaf95899c4520"
+        },
+        {
+            "m_Id": "f4be9efc4db14e7e8af9f1a8a924d8e5"
         }
     ],
     "synonyms": [

@@ -55,6 +55,8 @@ float3 CustomLightHandling(CustomLightingData d, Light light) {
 
     float3 radiance = light.color * (light.distanceAttenuation * light.shadowAttenuation);
 
+    //float gooch = (1.0f + dot(light.direction, d.normalWS)) / 2f;
+
     float diffuse = saturate(dot(d.normalWS, light.direction));
     float specularDot = saturate(dot(d.normalWS, normalize(light.direction + d.viewDirectionWS)));
     float specular = pow(specularDot, GetSmoothnessPower(d.smoothness)) * diffuse;
@@ -93,7 +95,7 @@ float3 CalculateCustomLighting(CustomLightingData d) {
     }
     #endif
 
-    color = MixFog(color, d.fogFactor);
+    //color = MixFog(color, d.fogFactor);
 
     return color;
 #endif
@@ -102,7 +104,7 @@ float3 CalculateCustomLighting(CustomLightingData d) {
 void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDirection, 
     float3 Albedo, float Smoothness, float AmbientOcclusion,
     float2 LightmapUV,
-    out float3 Color) {
+    out float3 Color, out float Fog) {
 
     CustomLightingData d;
     d.positionWS = Position;
@@ -118,6 +120,7 @@ void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDi
     d.bakedGI = 0;
     d.shadowMask = 0;
     d.fogFactor = 0;
+    Fog = 0;
 #else
     // Calculate the main light shadow coord
     // There are two types depending on if cascades are enabled
@@ -150,9 +153,11 @@ void CalculateCustomLighting_float(float3 Position, float3 Normal, float3 ViewDi
     // This returns 0 if fog is turned off
     // It is not the same as the fog node in the shader graph
     d.fogFactor = ComputeFogFactor(positionCS.z);
+    Fog = d.fogFactor;
 #endif
 
     Color = CalculateCustomLighting(d);
+
 }
 
 #endif
