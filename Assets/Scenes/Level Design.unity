@@ -456,16 +456,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2064261409}
   pathSectionsFolder: {fileID: 1429817577}
-  sectionSizeFactor: 10
+  sectionSizeFactor: 20
   generationMode: 1
   pathLeght: 100
-  interval: 0.1
+  interval: 1
   startDestroyPathLength: 0
   pathSectionPrefabs:
-  - {fileID: 4754757079993354382, guid: 458d4db27f8c07f40bad0679b86a4f05, type: 3}
-  - {fileID: 2082798874574921172, guid: c1b8c9741e4ebec4e9bedba80b2ff46a, type: 3}
-  - {fileID: 2082798874574921172, guid: bae055931bf32204c98d09d0eee127d6, type: 3}
-  startSection: {fileID: 4754757079993354382, guid: 458d4db27f8c07f40bad0679b86a4f05,
+  - {fileID: 6900903983813113723, guid: c2b4e46bf404cb947b1e4576a9449e08, type: 3}
+  - {fileID: 2546331992114011645, guid: ed4cb764ab90e0649bfafb5908e1d226, type: 3}
+  - {fileID: 2144507419949279912, guid: ef54e6dc134077244b33f071d836596f, type: 3}
+  startSection: {fileID: 2144507419949279912, guid: ef54e6dc134077244b33f071d836596f,
     type: 3}
   availablePathSections: []
 --- !u!4 &1653629960
@@ -476,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653629958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.8660254}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
