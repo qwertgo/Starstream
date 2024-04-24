@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2064261409}
   pathSectionsFolder: {fileID: 1429817577}
-  sectionSizeFactor: 20
+  sectionSizeFactor: 200
   generationMode: 1
   pathLeght: 100
   interval: 1
@@ -522,6 +522,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: headTracker
@@ -542,6 +552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8560506506758317756, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8561519761327402766, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: m_RootOrder
@@ -555,12 +570,12 @@ PrefabInstance:
     - target: {fileID: 8561519761327402766, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.86
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8561519761327402766, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8561519761327402766, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
