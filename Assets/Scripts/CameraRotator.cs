@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CameraRotator : MonoBehaviour
 {
+    [Header("Test")] 
     [SerializeField] private float rotationSpeed;
 
     private void Update()
