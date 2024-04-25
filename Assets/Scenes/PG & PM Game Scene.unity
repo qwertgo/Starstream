@@ -456,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2064261409}
   pathSectionsFolder: {fileID: 1429817577}
+  playerSpawnHeightOffset: 0
   sectionSizeFactor: 10
   generationMode: 1
   pathLeght: 100

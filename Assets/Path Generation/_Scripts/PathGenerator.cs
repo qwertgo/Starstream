@@ -12,6 +12,7 @@ public class PathGenerator : MonoBehaviour
 {
     [SerializeField]Transform playerTransform;
     [SerializeField]Transform pathSectionsFolder;
+    [SerializeField]float playerSpawnHeightOffset;
     [SerializeField]float sectionSizeFactor = 1;
     [Header("For Test Purposes")]
     [SerializeField]GenerationMode generationMode;
@@ -38,7 +39,7 @@ public class PathGenerator : MonoBehaviour
 
         if(playerTransform != null && pathSectionsFolder != null)
         {
-            pathSectionsFolder.position = playerTransform.position - Vector3.up*sectionSizeFactor/2;
+            pathSectionsFolder.position = playerTransform.position - (Vector3.up*(sectionSizeFactor/2+playerSpawnHeightOffset));
             pathSectionsFolder.rotation = playerTransform.rotation;
         }
 
