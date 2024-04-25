@@ -88,13 +88,11 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
     private void TrackerVelocityAdjustment()
     {
-        
-
         planarVelocity = planarVelocity.magnitude  * stickInputMultiplier * planarVelocity.normalized;
         planarVelocity = Vector2.ClampMagnitude(planarVelocity, 1);
 
-        float magnitude = planarVelocity.magnitude;
-        planarVelocity = magnitude * magnitude * planarVelocity.normalized;
+        //float magnitude = planarVelocity.magnitude;
+        //planarVelocity = magnitude * magnitude * planarVelocity.normalized;
     }
 
     //Only meant for debugging (its really bare bones)
