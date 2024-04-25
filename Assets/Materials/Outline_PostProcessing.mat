@@ -57,11 +57,11 @@ Material:
     - _NormalThreshold: 2.85
     - _OVERLAY: 1
     - _WSN_Clamp: 0.9
-    - _WSN_Strength: 5
+    - _WSN_Strength: 0
     - _WSN_Thickness: 0.15
     - _WSN_Threshold: 20
     m_Colors:
-    - _FogColor: {r: 0.08331604, g: 0.05357778, b: 0.26415092, a: 0.2}
-    - _FogOutlineColor: {r: 1, g: 0.2784314, b: 0, a: 0.5019608}
+    - _FogColor: {r: 0.21467362, g: 0.056292273, b: 0.21698111, a: 0.2}
+    - _FogOutlineColor: {r: 0.6132076, g: 0.28135407, b: 0.1533019, a: 0.5019608}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
