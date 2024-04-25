@@ -11,10 +11,10 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
     [SerializeField] private InputMethod inputMethod;
 
-    [SerializeField] private float stickDeadZone = .05f;
-    [SerializeField] private float headDeadZone = .01f;
+    //[SerializeField] private float stickDeadZone = .05f;
+    //[SerializeField] private float headDeadZone = .01f;
     [SerializeField] private float stickInputMultiplier = 2.5f;
-    [SerializeField] private float headInputMultiplier = 10;
+    //[SerializeField] private float headInputMultiplier = 10;
 
     [SerializeField] private Transform headTracker;
     [SerializeField] private Transform stickTracker;

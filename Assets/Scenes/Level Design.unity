@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2064261409}
   pathSectionsFolder: {fileID: 1429817577}
-  playerSpawnHeightOffset: 25
+  playerSpawnHeightOffset: 50
   sectionSizeFactor: 200
   generationMode: 1
   pathLeght: 100
@@ -530,8 +530,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
+      propertyPath: maxSpeed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: forwardAcceleration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
@@ -543,6 +553,11 @@ PrefabInstance:
       propertyPath: headTracker
       value: 
       objectReference: {fileID: 711972846}
+    - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: inputMethod
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: stickTracker
