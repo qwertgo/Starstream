@@ -62,7 +62,10 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer != 3)
+        {
+            Debug.Log(collision.gameObject.layer);
             return;
+        }
 
         Vector3 contacPoint = collision.contacts[0].point;
         Vector3 vecToContact = contacPoint - transform.position;
