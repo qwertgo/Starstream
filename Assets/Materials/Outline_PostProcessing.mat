@@ -52,7 +52,7 @@ Material:
     - _DepthThickness: 0.34
     - _DepthThreshold: 20
     - _Edge: 0.207
-    - _FogIntesnity: 100
+    - _FogIntesnity: 1000
     - _LineWidth: 0.59
     - _NormalThreshold: 2.85
     - _OVERLAY: 1
@@ -61,7 +61,7 @@ Material:
     - _WSN_Thickness: 0.15
     - _WSN_Threshold: 20
     m_Colors:
-    - _FogColor: {r: 0.29608276, g: 0.28257388, b: 0.4716981, a: 1}
+    - _FogColor: {r: 0.29608262, g: 0.28257376, b: 0.4716981, a: 0}
     - _FogOutlineColor: {r: 0.6132076, g: 0.28135407, b: 0.1533019, a: 0.5019608}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
