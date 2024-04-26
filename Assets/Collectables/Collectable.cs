@@ -7,5 +7,6 @@ public class Collectable : MonoBehaviour
     public void OnCollect()
     {
         ScoreManager.S.AddScore();
+        Destroy(gameObject);
     }
 }

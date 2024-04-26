@@ -79,6 +79,5 @@ public class PlayerController : MonoBehaviour
 
         Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
         rb.rotation = Quaternion.LookRotation(newForward, transform.up);
-
     }
 }

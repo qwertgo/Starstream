@@ -10,7 +10,7 @@ public class PathSection : MonoBehaviour
 
     private void Start() {
         objectsFolder = transform.Find("Objects");
-        AddComponents();
+        //AddComponents();
     }
     void AddComponents()
     {

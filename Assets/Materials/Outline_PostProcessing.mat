@@ -62,6 +62,7 @@ Material:
     - _WSN_Threshold: 20
     m_Colors:
     - _FogColor: {r: 0.29608262, g: 0.28257376, b: 0.4716981, a: 0}
+    - _FogIntensity: {r: 0, g: 1000, b: 0, a: 0}
     - _FogOutlineColor: {r: 0.6132076, g: 0.28135407, b: 0.1533019, a: 0.5019608}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
