@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 90;
 
     [SerializeField] private LayerMask tubeLayer;
+    //[SerializeField] private Transform visuals;
+    [SerializeField] private Transform lookAtTransform;
+    [SerializeField] private float lookAtDistance = .5f;
 
     private Rigidbody rb;
     private float currentSpeed;
@@ -57,12 +60,18 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * transform.up);
         rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * Vector3.right);
         rb.rotation *= rotation;
+        //visuals.localRotation = rotation;
+        lookAtTransform.position =
+            transform.position + transform.forward * 3 + transform.rotation * inputFetcher.planarVelocity * -lookAtDistance;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer != 3)
+        {
+            Debug.Log(collision.gameObject.layer);
             return;
+        }
 
         Vector3 contacPoint = collision.contacts[0].point;
         Vector3 vecToContact = contacPoint - transform.position;
