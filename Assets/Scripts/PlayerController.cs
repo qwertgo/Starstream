@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     private void Rotation()
     {
         //Debug.Log(inputFetcher.planarVelocity.x);
-        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * transform.up);
+        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * Vector3.up);
         rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * Vector3.right);
         rb.rotation *= rotation;
         //visuals.localRotation = rotation;
