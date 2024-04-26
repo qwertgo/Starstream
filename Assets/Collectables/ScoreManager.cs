@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
+using NaughtyAttributes;
+using UnityEngine;  
 public class ScoreManager : MonoBehaviour
 {
-    int score = 0;
+    public static ScoreManager S;
+    [ShowNonSerializedField]int score = 0;
+    private void Awake() {
+        if(S == null)
+            S = this;
+        else
+            Destroy(this.gameObject);
+    }
     private void Start() 
     {
         
