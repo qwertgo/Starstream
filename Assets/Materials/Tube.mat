@@ -50,7 +50,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Edge: 0.75
+    - _Edge: 0.55
     - _Glitter_Offset: 0.5
     - _Hue_Offset: 0
     - _Line_Distance: 20
@@ -66,16 +66,19 @@ Material:
     - _NormalMapStrength: 50
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 0.0246
+    - _Scale: 0.0137
     - _Speed: 0.2
     - _StarAmount: 0.341
     - _distance: 15
     - _width: 0.15
     m_Colors:
-    - _Base_Color: {r: 0.0020754768, g: 0.0020754768, b: 0.009433985, a: 1}
-    - _Base_Color_2: {r: 0.14778392, g: 0.18597977, b: 0.254717, a: 1}
+    - _Base_Color: {r: 0.16909933, g: 0.16909933, b: 0.3773585, a: 1}
+    - _Base_Color_2: {r: 0.4362763, g: 0.51647764, b: 0.7169812, a: 1}
+    - _CameraPos: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+    - _Fog_Remap: {r: 0, g: 400, b: 0, a: 0}
     - _Hightlight_Color: {r: 1.0222144, g: 1.4503907, b: 1.8522177, a: 1}
+    - _Step: {r: 0.7, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5825223983727065585
 MonoBehaviour:

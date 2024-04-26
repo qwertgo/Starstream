@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - REQUIRE_OPAQUE_TEXTURE: 1
     - _ColorClamp: 0.225
-    - _ColorStrength: 0
+    - _ColorStrength: 10
     - _ColorThickness: 1.45
     - _ColorThreshhold: 0.29
     - _ColorThreshold: 0.318
@@ -57,11 +57,13 @@ Material:
     - _NormalThreshold: 2.85
     - _OVERLAY: 1
     - _WSN_Clamp: 0.9
-    - _WSN_Strength: 0
+    - _WSN_Strength: 10
     - _WSN_Thickness: 0.15
     - _WSN_Threshold: 20
     m_Colors:
-    - _FogColor: {r: 0.29608262, g: 0.28257376, b: 0.4716981, a: 0}
-    - _FogOutlineColor: {r: 0.6132076, g: 0.28135407, b: 0.1533019, a: 0.5019608}
+    - _ColorLinesFogIntensity: {r: 0, g: 0.1, b: 0, a: 0}
+    - _FogColor: {r: 0.637104, g: 0.765037, b: 0.9716981, a: 1}
+    - _FogIntensity: {r: 0, g: 800, b: 0, a: 0}
+    - _FogOutlineColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
