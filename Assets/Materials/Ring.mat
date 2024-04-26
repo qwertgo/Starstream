@@ -20,14 +20,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Satelit_Lines
+  m_Name: Ring
   m_Shader: {fileID: -6465566751694194690, guid: bbcc89e90eaa77141a487048d09168b9,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _USEALBEDOTEXTURE
-  - _USENORMALMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,11 +39,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 1c0e9fd827aff434382acb560df95194, type: 3}
+        m_Texture: {fileID: 2800000, guid: 61a97cd789bb3c4459d1c0f76a8ff9ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 04a702a2d12850d4682ff77d4bf19a64, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4ee9c2ee6befb0b43bf181cea5b3403d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -70,7 +69,7 @@ Material:
     - _ShadowWidth: 0.5
     - _Smoothness: 0
     - _USEALBEDOTEXTURE: 1
-    - _USENORMALMAP: 1
+    - _USENORMALMAP: 0
     - _step: 0.085
     m_Colors:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
