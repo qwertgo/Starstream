@@ -72,10 +72,12 @@ public class PlayerController : MonoBehaviour
     }
 
     //To prevent collision redirect player if he steers into the tube
+    //actual avoidance is in the rotate function. This precalculates data which is used later
     private void AvoidTube()
     {
         int rayCastHits = 0;
         
+        //Rotate forward vector in 4 directions
         Vector3 ray1 = Quaternion.Euler(avoidTubeRaycastRotation * transform.up) * transform.forward;
         Vector3 ray2 = Quaternion.Euler(-avoidTubeRaycastRotation * transform.up) * transform.forward;
         Vector3 ray3 = Quaternion.Euler(avoidTubeRaycastRotation * transform.right) * transform.forward;
@@ -99,7 +101,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             avoidTubePercentage /= rayCastHits;
-            avoidTubePercentage *= avoidTubePercentage;
+            avoidTubePercentage = Mathf.SmoothStep(0, 1, avoidTubePercentage);
             avoidTubeInput /= rayCastHits;
             avoidTubeInput.Normalize();
         }
@@ -112,6 +114,7 @@ public class PlayerController : MonoBehaviour
             float rayLength = (hit.point - transform.position).magnitude;
             avoidTubePercentage += 1 - (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
             
+            //convert hit normal to screen space
             Vector3 p1 = cam.WorldToScreenPoint(hit.point);
             Vector3 p2 = cam.WorldToScreenPoint(hit.point - hit.normal);
             avoidTubeInput += ((Vector2)(p1 - p2)).normalized;

@@ -365,6 +365,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trackers
       objectReference: {fileID: 0}
+    - target: {fileID: 6495832717360345889, guid: d5dad1c54a8e8e94693b0bbfeedaffbd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305197932702568640, guid: d5dad1c54a8e8e94693b0bbfeedaffbd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8522025785667601725, guid: d5dad1c54a8e8e94693b0bbfeedaffbd,
         type: 3}
       propertyPath: m_RootOrder
@@ -549,6 +559,11 @@ PrefabInstance:
       propertyPath: debugTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: avoidTubeMaxDistance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: m_Enabled
@@ -559,6 +574,11 @@ PrefabInstance:
       propertyPath: headTracker
       value: 
       objectReference: {fileID: 711972846}
+    - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: inputMethod
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: stickTracker
@@ -629,7 +649,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7337724432628970410, guid: 68dd24c0ba0533649aeae14cc7141005, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
