@@ -20,7 +20,7 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
     private Vector3 stickStartPosition;
     private TrackerInputAction controls;
-
+    
 
     // Start is called before the first frame update
     IEnumerator Start()
