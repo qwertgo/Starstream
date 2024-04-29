@@ -20,10 +20,12 @@ public class PlayerController : MonoBehaviour
     private float avoidTubePercentage;
 
     private Rigidbody rb;
-    private Quaternion lerpToGoal;
+    private Camera cam;
+    private Vector2 avoidTubeInput;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cam = Camera.main;
     }
     public void Go()
     {
@@ -53,10 +55,19 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate()
     {
-        float lockSteeringPercentage = 1 - avoidTubePercentage;
-        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * lockSteeringPercentage * Vector3.up);
-        rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * lockSteeringPercentage * Vector3.right);
-        rb.rotation *= rotation;
+        float lockSteeringMultiplier = 1 - avoidTubePercentage;
+        
+        
+        
+        Quaternion minTubeAvoidance = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed  * Vector3.up);
+        minTubeAvoidance *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed  * Vector3.right);
+        minTubeAvoidance = rb.rotation * minTubeAvoidance;
+        
+        Quaternion maxTubeAvoidance = Quaternion.Euler(avoidTubeInput.x * rotationSpeed  * Vector3.up);
+        maxTubeAvoidance *= Quaternion.Euler(-avoidTubeInput.y * rotationSpeed * Vector3.right);
+        maxTubeAvoidance = rb.rotation * maxTubeAvoidance;
+
+        rb.rotation = Quaternion.Lerp(minTubeAvoidance, maxTubeAvoidance, avoidTubePercentage);
         
         lookAtTransform.position =
             transform.position + transform.forward * 3 + transform.rotation * inputFetcher.planarVelocity * -lookAtDistance;
@@ -68,20 +79,17 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, avoidTubeMaxDistance, tubeLayer))
         {
             float rayLength = (hit.point - transform.position).magnitude;
-            avoidTubePercentage = (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
-            
-            Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
-            lerpToGoal = Quaternion.LookRotation(newForward, transform.up);
-            Quaternion maxTubeAvoidance = Quaternion.Lerp(rb.rotation, lerpToGoal,  Time.deltaTime);
+            avoidTubePercentage = 1 - (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
 
-            rb.rotation = Quaternion.Lerp(rb.rotation, maxTubeAvoidance, avoidTubePercentage);
+            Vector3 p1 = cam.WorldToScreenPoint(hit.point);
+            Vector3 p2 = cam.WorldToScreenPoint(hit.point - hit.normal);
+            avoidTubeInput = ((Vector2)(p1 - p2)).normalized;
         }
         else
         {
             avoidTubePercentage = 0;
         }
 
-        
     }
 
     private void OnCollisionEnter(Collision collision)

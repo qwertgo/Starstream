@@ -389,15 +389,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFetcher: {fileID: 0}
-  forwardAcceleration: 10
-  maxSpeed: 20
-  planarSpeed: 12.5
+  forwardAcceleration: 20
+  maxSpeed: 70
   rotationSpeed: 2
+  avoidTubeMinDistance: 10
+  avoidTubeMaxDistance: 100
+  lookAtDistance: 0.5
   tubeLayer:
     serializedVersion: 2
     m_Bits: 8
   lookAtTransform: {fileID: 3706713414340744765}
-  lookAtDistance: 0.5
 --- !u!54 &2745520955274858914
 Rigidbody:
   m_ObjectHideFlags: 0
