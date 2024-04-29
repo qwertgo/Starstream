@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7937808588275146015}
   - component: {fileID: 5739051383314778694}
   - component: {fileID: 5313460708688689208}
+  - component: {fileID: 7337724432628970410}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2904990443256961048}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.043619405, y: 0, z: 0, w: 0.9990483}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -139,6 +140,19 @@ MonoBehaviour:
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
 --- !u!114 &5313460708688689208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904990443256961048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeadc84fe05dfe4c86268f6b39b0e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAtTransform: {fileID: 3706713414340744765}
+--- !u!114 &7337724432628970410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planarVelocity: {x: 0, y: 0}
-  inputMethod: 2
+  inputMethod: 1
   stickInputMultiplier: 5
   calibrationTime: 1.5
   headTracker: {fileID: 0}
@@ -395,6 +409,7 @@ MonoBehaviour:
   avoidTubeMinDistance: 10
   avoidTubeMaxDistance: 100
   lookAtDistance: 0.5
+  avoidTubeRaycastRotation: 10
   tubeLayer:
     serializedVersion: 2
     m_Bits: 8

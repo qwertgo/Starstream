@@ -74,25 +74,6 @@ public class PlayerController : MonoBehaviour
     //To prevent collision redirect player if he steers into the tube
     private void AvoidTube()
     {
-        SumAllRaycasts();
-        // if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, avoidTubeMaxDistance, tubeLayer))
-        // {
-        //     float rayLength = (hit.point - transform.position).magnitude;
-        //     avoidTubePercentage = 1 - (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
-        //
-        //     Vector3 p1 = cam.WorldToScreenPoint(hit.point);
-        //     Vector3 p2 = cam.WorldToScreenPoint(hit.point - hit.normal);
-        //     avoidTubeInput = ((Vector2)(p1 - p2)).normalized;
-        // }
-        // else
-        // {
-        //     avoidTubePercentage = 0;
-        // }
-
-    }
-
-    private void SumAllRaycasts()
-    {
         int rayCastHits = 0;
         
         Vector3 ray1 = Quaternion.Euler(avoidTubeRaycastRotation * transform.up) * transform.forward;
@@ -100,10 +81,10 @@ public class PlayerController : MonoBehaviour
         Vector3 ray3 = Quaternion.Euler(avoidTubeRaycastRotation * transform.right) * transform.forward;
         Vector3 ray4 = Quaternion.Euler(-avoidTubeRaycastRotation * transform.right) * transform.forward;
         
-        Debug.DrawRay(transform.position, ray1 * avoidTubeMaxDistance, Color.blue);
-        Debug.DrawRay(transform.position, ray2 * avoidTubeMaxDistance, Color.blue);
-        Debug.DrawRay(transform.position, ray3 * avoidTubeMaxDistance, Color.red);
-        Debug.DrawRay(transform.position, ray4 * avoidTubeMaxDistance, Color.red);
+        // Debug.DrawRay(transform.position, ray1 * avoidTubeMaxDistance, Color.blue);
+        // Debug.DrawRay(transform.position, ray2 * avoidTubeMaxDistance, Color.blue);
+        // Debug.DrawRay(transform.position, ray3 * avoidTubeMaxDistance, Color.red);
+        // Debug.DrawRay(transform.position, ray4 * avoidTubeMaxDistance, Color.red);
 
         rayCastHits += RayCastSumIteration(ray1);
         rayCastHits += RayCastSumIteration(ray2);
