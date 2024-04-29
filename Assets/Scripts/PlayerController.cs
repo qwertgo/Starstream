@@ -101,7 +101,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             avoidTubePercentage /= rayCastHits;
-            avoidTubePercentage = Mathf.SmoothStep(0, 1, avoidTubePercentage);
+            //avoidTubePercentage = Mathf.SmoothStep(0, 1, avoidTubePercentage);
+            avoidTubePercentage *= avoidTubePercentage;
             avoidTubeInput /= rayCastHits;
             avoidTubeInput.Normalize();
         }
