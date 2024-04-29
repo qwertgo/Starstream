@@ -9,7 +9,7 @@ using System.Linq;
 public class ReactionSound : MonoBehaviour
 {
     [System.Serializable]
-    public enum AudioPlayMode {OneShot , OneShotRandom , Repeat , LoopEndless , RepeatRandom , RepeatInOrder , RepeatOnRandomSource}
+    public enum AudioPlayMode {OneShot , OneShotRandom , Repeat , LoopEndless , RepeatRandom , RepeatOnRandomSource}
     [SerializeField]List<AudioClip> audioClips;
     [SerializeField]AudioPlayMode audioPlayMode;
     [HideIf("audioPlayMode" , AudioPlayMode.OneShot)][SerializeField]int repeatAmount;
@@ -73,8 +73,8 @@ public class ReactionSound : MonoBehaviour
             case AudioPlayMode.OneShotRandom:
                 coroutine = StartCoroutine(PlayOneShotRandom());
                 break;
-            case AudioPlayMode.RepeatInOrder:
-                break;
+            /*case AudioPlayMode.RepeatInOrder:
+                break;*/
             case AudioPlayMode.RepeatOnRandomSource:
                 coroutine = StartCoroutine(PlayRepeatOnRandomSource());    
                 break;
