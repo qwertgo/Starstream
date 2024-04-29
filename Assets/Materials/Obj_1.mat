@@ -76,6 +76,6 @@ Material:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.26713246, g: 0.36085367, b: 0.6509434, a: 1}
     - _FogColor: {r: 0, g: 0, b: 0, a: 0}
-    - _LightColor: {r: 0.55008435, g: 0.7735849, b: 0.49261302, a: 0}
+    - _LightColor: {r: 0.84313726, g: 0.46666667, b: 0.39215687, a: 0.7490196}
     - _ShadowColor: {r: 0.3018868, g: 0.032751877, b: 0.101929165, a: 0.7490196}
   m_BuildTextureStacks: []

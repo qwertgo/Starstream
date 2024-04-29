@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Satelit
+  m_Name: Turbine
   m_Shader: {fileID: -6465566751694194690, guid: bbcc89e90eaa77141a487048d09168b9,
     type: 3}
   m_Parent: {fileID: 0}
@@ -39,7 +39,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: f4452e9918995244ebf39a24177e5855, type: 3}
+        m_Texture: {fileID: 2800000, guid: 481eee1a70959b343a81925328913d18, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
@@ -75,6 +75,6 @@ Material:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.26713246, g: 0.36085367, b: 0.6509434, a: 1}
     - _FogColor: {r: 0, g: 0, b: 0, a: 0}
-    - _LightColor: {r: 0.84313726, g: 0.46666667, b: 0.39215687, a: 0.7490196}
+    - _LightColor: {r: 0.8431373, g: 0.46666658, b: 0.39215684, a: 0.7490196}
     - _ShadowColor: {r: 0.3018868, g: 0.032751877, b: 0.101929165, a: 0.7490196}
   m_BuildTextureStacks: []

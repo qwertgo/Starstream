@@ -8,17 +8,19 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float forwardAcceleration = 1;
     [SerializeField] private float maxSpeed = 35;
-    [SerializeField] private float planarSpeed = 2;
     [SerializeField] private float rotationSpeed = 90;
-
-    [SerializeField] private LayerMask tubeLayer;
-    //[SerializeField] private Transform visuals;
-    [SerializeField] private Transform lookAtTransform;
+    [SerializeField] private float avoidTubeMinDistance = 10;
+    [SerializeField] private float avoidTubeMaxDistance = 100;
     [SerializeField] private float lookAtDistance = .5f;
 
-    private Rigidbody rb;
-    private float currentSpeed;
+    [SerializeField] private LayerMask tubeLayer;
+    [SerializeField] private Transform lookAtTransform;
 
+    private float currentSpeed;
+    private float avoidTubePercentage;
+
+    private Rigidbody rb;
+    private Quaternion lerpToGoal;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,9 +34,9 @@ public class PlayerController : MonoBehaviour
     {
         while (enabled)
         {
+            AvoidTube();
+            Rotate();
             Accelerate();
-            //PlanarMovement();
-            Rotation();
             yield return null;
         }
 
@@ -49,20 +51,37 @@ public class PlayerController : MonoBehaviour
         rb.velocity = transform.forward * currentSpeed;
     }
 
-    private void PlanarMovement()
+    private void Rotate()
     {
-        rb.velocity += Vector3.ProjectOnPlane(inputFetcher.planarVelocity * planarSpeed, transform.forward);
-    }
-
-    private void Rotation()
-    {
-        //Debug.Log(inputFetcher.planarVelocity.x);
-        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * transform.up);
-        rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * Vector3.right);
+        float lockSteeringPercentage = 1 - avoidTubePercentage;
+        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * lockSteeringPercentage * Vector3.up);
+        rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * lockSteeringPercentage * Vector3.right);
         rb.rotation *= rotation;
-        //visuals.localRotation = rotation;
+        
         lookAtTransform.position =
             transform.position + transform.forward * 3 + transform.rotation * inputFetcher.planarVelocity * -lookAtDistance;
+    }
+
+    //To prevent collision redirect player if he steers into the tube
+    private void AvoidTube()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, avoidTubeMaxDistance, tubeLayer))
+        {
+            float rayLength = (hit.point - transform.position).magnitude;
+            avoidTubePercentage = (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
+            
+            Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
+            lerpToGoal = Quaternion.LookRotation(newForward, transform.up);
+            Quaternion maxTubeAvoidance = Quaternion.Lerp(rb.rotation, lerpToGoal,  Time.deltaTime);
+
+            rb.rotation = Quaternion.Lerp(rb.rotation, maxTubeAvoidance, avoidTubePercentage);
+        }
+        else
+        {
+            avoidTubePercentage = 0;
+        }
+
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -73,9 +92,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Vector3 contacPoint = collision.contacts[0].point;
-        Vector3 vecToContact = contacPoint - transform.position;
-        Physics.Raycast(transform.position, vecToContact.normalized, out RaycastHit hit, 20, tubeLayer);
+        Vector3 contactPoint = collision.contacts[0].point;
+        Vector3 vecToContact = contactPoint - transform.position;
+        Physics.Raycast(transform.position, vecToContact.normalized, out RaycastHit hit, 10, tubeLayer);
 
         Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
         rb.rotation = Quaternion.LookRotation(newForward, transform.up);

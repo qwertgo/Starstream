@@ -706,6 +706,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6711101258303429863, guid: 26bf728d19e398141a82b3e7b080f435,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -6022416919480767438, guid: 26bf728d19e398141a82b3e7b080f435,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
