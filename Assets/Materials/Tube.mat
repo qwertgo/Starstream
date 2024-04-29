@@ -73,12 +73,12 @@ Material:
     - _width: 0.15
     m_Colors:
     - _Base_Color: {r: 0.16909933, g: 0.16909933, b: 0.3773585, a: 1}
-    - _Base_Color_2: {r: 0.4362763, g: 0.51647764, b: 0.7169812, a: 1}
+    - _Base_Color_2: {r: 0.32106623, g: 0.41772178, b: 0.6132076, a: 1}
     - _CameraPos: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
     - _Fog_Remap: {r: 0, g: 400, b: 0, a: 0}
     - _Hightlight_Color: {r: 1.0222144, g: 1.4503907, b: 1.8522177, a: 1}
-    - _Step: {r: 0.7, g: 1, b: 0, a: 0}
+    - _Step: {r: 0.9, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5825223983727065585
 MonoBehaviour:
