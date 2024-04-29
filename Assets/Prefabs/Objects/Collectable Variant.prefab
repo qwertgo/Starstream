@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1868e5aae8296488ddb12d062e2035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickedUpCollectableEvent: {fileID: 11400000, guid: 614b9cab0b6990246977f695d00c7e5a,
+    type: 2}
 --- !u!64 &5110455131442081657
 MeshCollider:
   m_ObjectHideFlags: 0
