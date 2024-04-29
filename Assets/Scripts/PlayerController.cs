@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float avoidTubeMaxDistance = 100;
     [SerializeField] private float lookAtDistance = .5f;
 
+    [SerializeField] private float avoidTubeRaycastRotation = 20; // how much to rotate the 4 raycast away from the forward vector
+
     [SerializeField] private LayerMask tubeLayer;
     [SerializeField] private Transform lookAtTransform;
 
@@ -20,10 +22,12 @@ public class PlayerController : MonoBehaviour
     private float avoidTubePercentage;
 
     private Rigidbody rb;
-    private Quaternion lerpToGoal;
+    private Camera cam;
+    private Vector2 avoidTubeInput;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cam = Camera.main;
     }
     public void Go()
     {
@@ -53,35 +57,72 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate()
     {
-        float lockSteeringPercentage = 1 - avoidTubePercentage;
-        Quaternion rotation = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * lockSteeringPercentage * Vector3.up);
-        rotation *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * lockSteeringPercentage * Vector3.right);
-        rb.rotation *= rotation;
+        Quaternion minTubeAvoidance = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed  * Vector3.up);
+        minTubeAvoidance *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed  * Vector3.right);
+        minTubeAvoidance = rb.rotation * minTubeAvoidance;
+        
+        Quaternion maxTubeAvoidance = Quaternion.Euler(avoidTubeInput.x * rotationSpeed  * Vector3.up);
+        maxTubeAvoidance *= Quaternion.Euler(-avoidTubeInput.y * rotationSpeed * Vector3.right);
+        maxTubeAvoidance = rb.rotation * maxTubeAvoidance;
+
+        rb.rotation = Quaternion.Lerp(minTubeAvoidance, maxTubeAvoidance, avoidTubePercentage);
         
         lookAtTransform.position =
             transform.position + transform.forward * 3 + transform.rotation * inputFetcher.planarVelocity * -lookAtDistance;
     }
 
     //To prevent collision redirect player if he steers into the tube
+    //actual avoidance is in the rotate function. This precalculates data which is used later
     private void AvoidTube()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, avoidTubeMaxDistance, tubeLayer))
-        {
-            float rayLength = (hit.point - transform.position).magnitude;
-            avoidTubePercentage = (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
-            
-            Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
-            lerpToGoal = Quaternion.LookRotation(newForward, transform.up);
-            Quaternion maxTubeAvoidance = Quaternion.Lerp(rb.rotation, lerpToGoal,  Time.deltaTime);
+        int rayCastHits = 0;
+        
+        //Rotate forward vector in 4 directions
+        Vector3 ray1 = Quaternion.Euler(avoidTubeRaycastRotation * transform.up) * transform.forward;
+        Vector3 ray2 = Quaternion.Euler(-avoidTubeRaycastRotation * transform.up) * transform.forward;
+        Vector3 ray3 = Quaternion.Euler(avoidTubeRaycastRotation * transform.right) * transform.forward;
+        Vector3 ray4 = Quaternion.Euler(-avoidTubeRaycastRotation * transform.right) * transform.forward;
+        
+        // Debug.DrawRay(transform.position, ray1 * avoidTubeMaxDistance, Color.blue);
+        // Debug.DrawRay(transform.position, ray2 * avoidTubeMaxDistance, Color.blue);
+        // Debug.DrawRay(transform.position, ray3 * avoidTubeMaxDistance, Color.red);
+        // Debug.DrawRay(transform.position, ray4 * avoidTubeMaxDistance, Color.red);
 
-            rb.rotation = Quaternion.Lerp(rb.rotation, maxTubeAvoidance, avoidTubePercentage);
+        rayCastHits += RayCastSumIteration(ray1);
+        rayCastHits += RayCastSumIteration(ray2);
+        rayCastHits += RayCastSumIteration(ray3);
+        rayCastHits += RayCastSumIteration(ray4);
+
+        if (rayCastHits == 0)
+        {
+            avoidTubePercentage = 0;
+            avoidTubeInput = Vector2.zero;
         }
         else
         {
-            avoidTubePercentage = 0;
+            avoidTubePercentage /= rayCastHits;
+            avoidTubePercentage = Mathf.SmoothStep(0, 1, avoidTubePercentage);
+            avoidTubeInput /= rayCastHits;
+            avoidTubeInput.Normalize();
+        }
+    }
+
+    private int RayCastSumIteration(Vector3 dir)
+    {
+        if (Physics.Raycast(transform.position, dir, out RaycastHit hit, avoidTubeMaxDistance, tubeLayer))
+        {
+            float rayLength = (hit.point - transform.position).magnitude;
+            avoidTubePercentage += 1 - (rayLength - avoidTubeMinDistance) / (avoidTubeMaxDistance - avoidTubeMinDistance);
+            
+            //convert hit normal to screen space
+            Vector3 p1 = cam.WorldToScreenPoint(hit.point);
+            Vector3 p2 = cam.WorldToScreenPoint(hit.point - hit.normal);
+            avoidTubeInput += ((Vector2)(p1 - p2)).normalized;
+
+            return 1;
         }
 
-        
+        return 0;
     }
 
     private void OnCollisionEnter(Collision collision)
