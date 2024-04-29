@@ -8,13 +8,9 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     private enum InputMethod {SingleViveTracker, MultipleViveTracker, Keyboard}
 
     [HideInInspector] public Vector2 planarVelocity;
-
     [SerializeField] private InputMethod inputMethod;
-
-    [SerializeField] private float stickDeadZone = .05f;
-    [SerializeField] private float headDeadZone = .01f;
     [SerializeField] private float stickInputMultiplier = 2.5f;
-    [SerializeField] private float headInputMultiplier = 10;
+    [SerializeField] private float calibrationTime = 1.5f;
 
     [SerializeField] private Transform headTracker;
     [SerializeField] private Transform stickTracker;
@@ -35,7 +31,7 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
             controls.Enable();
             controls.ViveTracker.SetCallbacks(this);
         }
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(calibrationTime);
 
         stickStartPosition = stickTracker.position;
 
@@ -88,13 +84,11 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
     private void TrackerVelocityAdjustment()
     {
-        
-
         planarVelocity = planarVelocity.magnitude  * stickInputMultiplier * planarVelocity.normalized;
         planarVelocity = Vector2.ClampMagnitude(planarVelocity, 1);
 
-        float magnitude = planarVelocity.magnitude;
-        planarVelocity = magnitude * magnitude * planarVelocity.normalized;
+        //float magnitude = planarVelocity.magnitude;
+        //planarVelocity = magnitude * magnitude * planarVelocity.normalized;
     }
 
     //Only meant for debugging (its really bare bones)

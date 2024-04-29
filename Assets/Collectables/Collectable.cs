@@ -1,0 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Collectable : MonoBehaviour
+{
+    public void OnCollect()
+    {
+        ScoreManager.S.AddScore();
+        Destroy(gameObject);
+    }
+}
