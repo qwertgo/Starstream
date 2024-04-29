@@ -7,7 +7,7 @@ using System.IO;
 
 public enum TransitionDirection {Left, Straight, Right}
 public enum PathDirection {Left, Straight, Right}
-public enum GenerationMode {InstantAmount, TileForTile}
+public enum GenerationMode {InstantAmount, TileForTile, PlayerPosition}
 public class PathGenerator : MonoBehaviour
 {
     [SerializeField]Transform playerTransform;
@@ -19,6 +19,10 @@ public class PathGenerator : MonoBehaviour
     [ShowIf("generationMode", GenerationMode.InstantAmount)][SerializeField]int pathLeght = 10;
     [ShowIf("generationMode", GenerationMode.TileForTile)][SerializeField]float interval = 2;
     [ShowIf("generationMode", GenerationMode.TileForTile)][SerializeField]int startDestroyPathLength = 0;
+    [ShowIf("generationMode", GenerationMode.PlayerPosition)][SerializeField]int generationDistance = 50;
+    [ShowIf("generationMode", GenerationMode.PlayerPosition)][SerializeField]int startSectionAmount = 3;
+
+
     [Header("")]
 
     [SerializeField]List<PathSection> pathSectionPrefabs;
@@ -44,25 +48,39 @@ public class PathGenerator : MonoBehaviour
         }
 
         if(generationMode == GenerationMode.InstantAmount)
-            GenerateWholePath();
+            GenerateWholePath(pathLeght);
         else if(generationMode == GenerationMode.TileForTile)
-            StartCoroutine(GenerateTileForTile(2));
+            StartCoroutine(GenerateTileForTile(interval));
+        else
+            StartCoroutine(GenerateBasedOnPlayer());
     }
 
 //=============== GENERATION MODES FOR TESTING ===============
-    void GenerateWholePath()
+    void GenerateWholePath(int sectionAmount)
     {
-        if(activePaths.Count <= 0)
-
-        for(int i = 0;i < pathLeght; i++)
+        for(int i = 0;i < sectionAmount; i++)
             GenerateSection();
     }
     IEnumerator GenerateTileForTile(float interval)
     {
         while(true)
         {
-            yield return new WaitForSeconds(this.interval);
+            yield return new WaitForSeconds(interval);
             GenerateSection();
+        }
+    }
+    IEnumerator GenerateBasedOnPlayer()
+    {
+        GenerateWholePath(startSectionAmount);
+        while(true)
+        {
+            if(Vector3.Distance(playerTransform.position, lastSection.transform.position) < generationDistance)
+            {
+                Destroy(activePaths.Peek().gameObject);
+                activePaths.Dequeue();
+                GenerateSection();
+            }
+            yield return new WaitForEndOfFrame();
         }
     }
 

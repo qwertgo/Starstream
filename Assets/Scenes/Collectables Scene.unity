@@ -236,6 +236,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 64639399}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: UpdateScoreDisplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &122372056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 347989232205970562, guid: d5dad1c54a8e8e94693b0bbfeedaffbd,
@@ -1118,10 +1130,12 @@ MonoBehaviour:
   pathSectionsFolder: {fileID: 1429817577}
   playerSpawnHeightOffset: 40
   sectionSizeFactor: 200
-  generationMode: 1
+  generationMode: 2
   pathLeght: 100
   interval: 1
   startDestroyPathLength: 0
+  generationDistance: 300
+  startSectionAmount: 5
   pathSectionPrefabs:
   - {fileID: 6900903983813113723, guid: c2b4e46bf404cb947b1e4576a9449e08, type: 3}
   - {fileID: 2546331992114011645, guid: ed4cb764ab90e0649bfafb5908e1d226, type: 3}
