@@ -20,12 +20,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ModifiesLightingTest
+  m_Name: Turbine_2
   m_Shader: {fileID: -6465566751694194690, guid: bbcc89e90eaa77141a487048d09168b9,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _USEALBEDOTEXTURE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,11 +39,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: d4780dc1205c7c7478c970d8c61d24e8, type: 3}
+        m_Texture: {fileID: 2800000, guid: e243b92030e748448bcbb674fa951f43, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4ee9c2ee6befb0b43bf181cea5b3403d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -63,17 +64,17 @@ Material:
     - _NormalStrength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadowAmount: 1
-    - _ShadowPosition: 0.422
-    - _ShadowWidth: 0.253
+    - _ShadowAmount: 0.544
+    - _ShadowPosition: 0.597
+    - _ShadowWidth: 0.5
     - _Smoothness: 0
-    - _USEALBEDOTEXTURE: 0
+    - _USEALBEDOTEXTURE: 1
     - _USENORMALMAP: 0
     - _step: 0.085
     m_Colors:
     - _Albedo: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0.37046102, g: 0.7075472, b: 0.5297472, a: 1}
-    - _FogColor: {r: 0.15886435, g: 0.3207547, b: 0.2984557, a: 0}
-    - _LightColor: {r: 0.8353886, g: 0.9811321, b: 0.74510497, a: 0.5019608}
-    - _ShadowColor: {r: 0.1167674, g: 0.52998984, b: 0.6037736, a: 0.7490196}
+    - _BaseColor: {r: 0.26713246, g: 0.36085367, b: 0.6509434, a: 1}
+    - _FogColor: {r: 0, g: 0, b: 0, a: 0}
+    - _LightColor: {r: 0.8431373, g: 0.46666652, b: 0.3921568, a: 0.5019608}
+    - _ShadowColor: {r: 0.3018868, g: 0.032751877, b: 0.101929165, a: 0.7490196}
   m_BuildTextureStacks: []
