@@ -36,7 +36,7 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         stickStartPosition = stickTracker.position;
 
         inputVisualization.GetComponent<MeshRenderer>().material = greenMat;
-        GetComponentInChildren<MeshRenderer>().material = greenMat;
+        // GetComponentInChildren<MeshRenderer>().material = greenMat;
 
         playerController.inputFetcher = this;
         playerController.Go();
