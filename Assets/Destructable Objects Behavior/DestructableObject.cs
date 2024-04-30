@@ -2,24 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshCollider))]
+[RequireComponent(typeof(Collider))]
 public class DestructableObject : MonoBehaviour
 {
     public enum CollisionType {Static, Moveable}
     [SerializeField]CollisionType collisionType = CollisionType.Moveable;
-    MeshCollider meshCollider;
+    Collider collider;
     Rigidbody rb;
     private void Start() 
     {
         rb = GetComponent<Rigidbody>();
-        meshCollider = GetComponent<MeshCollider>();
+        collider = GetComponent<Collider>();
 
     }
     public void OnCrash()
     {
         Debug.Log($"Crashed into {gameObject.name}");
-        meshCollider.convex = true;
-        meshCollider.isTrigger = true;
+
+        if (collider is MeshCollider)
+        {
+            MeshCollider meshCollider = (MeshCollider)collider;
+            meshCollider.convex = true;
+            meshCollider.isTrigger = true;
+        }
+        else
+        {
+            collider.isTrigger = true;
+        }
         //do stuff with particles
         //do stuff with objects transform
     }
