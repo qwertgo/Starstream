@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!2083052967 &2282800279055959119
 VisualEffect:
@@ -56,7 +56,16 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0.08021983, y: 0.60382754, z: 0.3967553, w: 1}
+        m_Name: Color01
+        m_Overridden: 1
+      - m_Value: {x: 0.32777813, y: 0.8796226, z: 0.76052475, w: 1}
+        m_Name: Color02
+        m_Overridden: 1
+      - m_Value: {x: 0.24007656, y: 0.7830189, z: 0.5077242, w: 1}
+        m_Name: Color03
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
