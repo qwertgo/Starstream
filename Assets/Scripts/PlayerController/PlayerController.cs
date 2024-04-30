@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private float currentSpeed;
     private float avoidTubePercentage;
+    private float wrongDirectionTimer;
 
     private Rigidbody rb;
     private Camera cam;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
             AvoidTube();
             Rotate();
             Accelerate();
+            CheckIfHeadingInRightDirection();
             yield return null;
         }
 
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour
             transform.position + transform.forward * 3 + transform.rotation * inputFetcher.planarVelocity * -lookAtDistance;
     }
 
+    #region Avoid Tube
     //To prevent collision redirect player if he steers into the tube
     //actual avoidance is in the rotate function. This precalculates data which is used later
     private void AvoidTube()
@@ -124,6 +127,24 @@ public class PlayerController : MonoBehaviour
         }
 
         return 0;
+    }
+    #endregion
+
+    private void CheckIfHeadingInRightDirection()
+    {
+        if (Vector3.Dot(Vector3.forward, transform.forward) < -.5f)
+        {
+            wrongDirectionTimer += Time.deltaTime;
+            if(wrongDirectionTimer > 5)
+                ResetPlayer();
+        }
+        else
+            wrongDirectionTimer = 0;
+    }
+
+    private void ResetPlayer()
+    {
+        rb.rotation = Quaternion.LookRotation(Vector3.forward, transform.up);
     }
 
     private void OnCollisionEnter(Collision collision)
