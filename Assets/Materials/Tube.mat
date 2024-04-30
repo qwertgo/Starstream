@@ -28,6 +28,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: df2f827b99017ff4aa453e9d19990abb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Noise_Texture:
+        m_Texture: {fileID: 2800000, guid: 3efc00997113824489c17fcd23ba8960, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: e7d48928695ed364b999b39b13df6a82, type: 3}
         m_Scale: {x: 1, y: 1}
