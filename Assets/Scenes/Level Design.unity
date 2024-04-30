@@ -964,6 +964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
+      propertyPath: rotationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
       propertyPath: debugTransform
       value: 
       objectReference: {fileID: 0}
@@ -995,7 +1000,7 @@ PrefabInstance:
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: inputMethod
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
@@ -1015,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: stickInputMultiplier
-      value: 3
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 7871050877320032958, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
