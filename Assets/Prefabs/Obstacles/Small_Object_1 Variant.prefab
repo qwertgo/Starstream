@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationMode: 1
-  rotSpeedX: 500
+  rotSpeedX: 5
   rotSpeedY: 0
   rotSpeedZ: 0
   orbitAxis: 0
