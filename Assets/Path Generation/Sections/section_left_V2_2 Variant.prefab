@@ -28,6 +28,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3532357307898181090}
+  - {fileID: 2098782506439773846}
   - {fileID: 1194723280448485101}
   - {fileID: 6704833205764105404}
   - {fileID: 461302143098097516}
@@ -37,6 +39,7 @@ Transform:
   - {fileID: 6183793593985476993}
   - {fileID: 6502956275401985668}
   - {fileID: 4227109433580112052}
+  - {fileID: 3532357307898181090}
   m_Father: {fileID: 8373314233306777388}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -293,7 +296,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8373314233306777388}
+    m_TransformParent: {fileID: 3395158370541763758}
     m_Modifications:
     - target: {fileID: 482981245633259905, guid: 5e37b3aec12763544aff2e6e5d88b242,
         type: 3}
@@ -303,17 +306,17 @@ PrefabInstance:
     - target: {fileID: 482981245633259905, guid: 5e37b3aec12763544aff2e6e5d88b242,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.522
+      value: 0.72869873
       objectReference: {fileID: 0}
     - target: {fileID: 482981245633259905, guid: 5e37b3aec12763544aff2e6e5d88b242,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8518
+      value: 0.28208452
       objectReference: {fileID: 0}
     - target: {fileID: 482981245633259905, guid: 5e37b3aec12763544aff2e6e5d88b242,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.186
+      value: -0.30932617
       objectReference: {fileID: 0}
     - target: {fileID: 482981245633259905, guid: 5e37b3aec12763544aff2e6e5d88b242,
         type: 3}
@@ -787,14 +790,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3395158370541763758}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26bf728d19e398141a82b3e7b080f435,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3532357307898181090}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26bf728d19e398141a82b3e7b080f435,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2098782506439773846}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26bf728d19e398141a82b3e7b080f435,
         type: 3}
@@ -979,7 +974,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8373314233306777388}
+    m_TransformParent: {fileID: 3395158370541763758}
     m_Modifications:
     - target: {fileID: 6947406935360917499, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
@@ -994,22 +989,22 @@ PrefabInstance:
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.434
+      value: -0.22729492
       objectReference: {fileID: 0}
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 0.23028451
       objectReference: {fileID: 0}
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.563
+      value: 0.43969727
       objectReference: {fileID: 0}
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.23650944
+      value: 0.23650946
       objectReference: {fileID: 0}
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
@@ -1019,7 +1014,7 @@ PrefabInstance:
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.94280577
+      value: -0.9428058
       objectReference: {fileID: 0}
     - target: {fileID: 7719721032830260545, guid: eef32726a89cd4f4785b3af48cb48b89,
         type: 3}
