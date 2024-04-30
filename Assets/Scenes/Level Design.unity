@@ -892,10 +892,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2303077929383264128, guid: 68dd24c0ba0533649aeae14cc7141005,
+    - target: {fileID: 2828742911399198362, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
+      propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3618335580280273346, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5087281809370128969, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
@@ -1021,6 +1026,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stickInputMultiplier
       value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389438124582201645, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7871050877320032958, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}

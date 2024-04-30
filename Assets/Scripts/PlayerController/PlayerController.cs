@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LayerMask tubeLayer;
     [SerializeField] private Transform lookAtTransform;
+    [SerializeField] private GameObject speedLinesParticleSystem;
 
     private float currentSpeed;
     private float avoidTubePercentage;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Go()
     {
+        speedLinesParticleSystem.SetActive(true);
         StartCoroutine(UpdateCoroutine());
     }
 
