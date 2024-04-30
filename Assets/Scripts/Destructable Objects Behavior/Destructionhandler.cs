@@ -10,6 +10,9 @@ public class Destructionhandler : MonoBehaviour
         {
             destructableObject.OnCrash();
         }
+    }
+    private void OnTriggerEnter(Collider other) 
+    {
         if(other.gameObject.TryGetComponent<Collectable>(out Collectable collectable))
         {
             collectable.OnCollect();

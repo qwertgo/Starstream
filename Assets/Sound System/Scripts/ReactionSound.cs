@@ -41,7 +41,12 @@ public class ReactionSound : MonoBehaviour
             {
                 audioSources.Add(audioSource);
                 startVolumes.Add(audioSource.volume);
-            }  
+            }
+        }
+        if(audioSources.Count > 0 && transform.TryGetComponent<AudioSource>(out AudioSource localAudioSource))
+        {
+            audioSources.Add(localAudioSource);
+            startVolumes.Add(localAudioSource.volume);
         }
     }
     private void Start() {
