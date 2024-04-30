@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9017083459230433019}
   - component: {fileID: 6541455267465923121}
   - component: {fileID: 6741267540728268048}
-  - component: {fileID: 4088204496298685714}
+  - component: {fileID: 3447246207245875582}
   m_Layer: 0
   m_Name: Collectable_2
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0906e93860f9fb14fa3131404e944a27, type: 2}
+  - {fileID: 2100000, guid: 587e71ebce7bf9f459ade54b966eb5de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickedUpCollectableEvent: {fileID: 11400000, guid: 614b9cab0b6990246977f695d00c7e5a,
     type: 2}
---- !u!64 &4088204496298685714
-MeshCollider:
+--- !u!136 &3447246207245875582
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,7 +117,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 92a26ed4df3f82a4b86e4d52049fa75e, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.07953547
+  m_Height: 0.43257624
+  m_Direction: 1
+  m_Center: {x: 0.0038627535, y: 0.021249823, z: -0.0029094666}
