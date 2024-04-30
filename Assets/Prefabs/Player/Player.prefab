@@ -5319,8 +5319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFetcher: {fileID: 0}
-  forwardAcceleration: 20
-  maxSpeed: 70
+  baseDifficulty: {fileID: 11400000, guid: d676bd9d93053f7448443381c045e6b3, type: 2}
+  harderDifficulty: {fileID: 11400000, guid: 82ae25b15924e1a4099c523d5dcdaf15, type: 2}
   rotationSpeed: 2
   avoidTubeMinDistance: 10
   avoidTubeMaxDistance: 100

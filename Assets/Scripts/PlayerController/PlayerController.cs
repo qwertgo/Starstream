@@ -6,8 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public InputFetcher inputFetcher;
 
-    [SerializeField] private float forwardAcceleration = 1;
-    [SerializeField] private float maxSpeed = 35;
+    [SerializeField] private Difficulty baseDifficulty;
+    [SerializeField] private Difficulty harderDifficulty;
+    private float forwardAcceleration = 1;
+    private float startSpeed = 30;
+    private float startMaxSpeed = 60;
+    private float timeForStartSpeed = 10;
+    private float maxSpeed = 35;
     [SerializeField] private float rotationSpeed = 90;
     [SerializeField] private float avoidTubeMinDistance = 10;
     [SerializeField] private float avoidTubeMaxDistance = 100;
@@ -22,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float currentSpeed;
     private float avoidTubePercentage;
     private float wrongDirectionTimer;
+    private float currentMaxSpeed;
 
     private Rigidbody rb;
     private Camera cam;
@@ -30,11 +36,33 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
+
+        ApplyDifficulty(baseDifficulty);
+    }
+
+    private void ApplyDifficulty(Difficulty difficulty)
+    {
+        forwardAcceleration = difficulty.forwardAcceleration;
+        startSpeed = difficulty.startSpeed;
+        startMaxSpeed = difficulty.startMaxSpeed;
+        timeForStartSpeed = difficulty.timeForStartSpeed;
+        maxSpeed = difficulty.maxSpeed;
     }
     public void Go()
     {
         speedLinesParticleSystem.SetActive(true);
+        currentSpeed = startSpeed;
+        rb.velocity = transform.forward * currentSpeed;
+        currentMaxSpeed = startMaxSpeed;
+        
+        StartCoroutine(WaitForMaxSpeedChange());
         StartCoroutine(UpdateCoroutine());
+    }
+
+    private IEnumerator WaitForMaxSpeedChange()
+    {
+        yield return new WaitForSeconds(timeForStartSpeed);
+        currentMaxSpeed = maxSpeed;
     }
 
     private IEnumerator UpdateCoroutine()
@@ -54,7 +82,7 @@ public class PlayerController : MonoBehaviour
     private void Accelerate()
     {
         currentSpeed += Time.deltaTime * forwardAcceleration;
-        currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+        currentSpeed = Mathf.Min(currentSpeed, currentMaxSpeed);
 
         rb.velocity = transform.forward * currentSpeed;
     }
