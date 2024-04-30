@@ -799,8 +799,8 @@ MonoBehaviour:
   pathLeght: 100
   interval: 1
   startDestroyPathLength: 0
-  generationDistance: 300
-  startSectionAmount: 5
+  generationDistance: 400
+  startSectionAmount: 7
   pathSectionPrefabs:
   - {fileID: 6900903983813113723, guid: c2b4e46bf404cb947b1e4576a9449e08, type: 3}
   - {fileID: 2546331992114011645, guid: ed4cb764ab90e0649bfafb5908e1d226, type: 3}

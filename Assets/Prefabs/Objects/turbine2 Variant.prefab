@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1655293035551560430}
   - component: {fileID: 5641886581293249658}
   - component: {fileID: 5395594019209132257}
+  - component: {fileID: 180522638102912341}
   m_Layer: 0
   m_Name: turbine2 Variant
   m_TagString: Untagged
@@ -121,3 +122,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionType: 1
+--- !u!114 &180522638102912341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006612029845615419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961786730c965c6439170660a541262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationMode: 1
+  rotSpeedX: 0
+  rotSpeedY: 10
+  rotSpeedZ: 0
+  orbitAxis: 0
+  orbitTarget: {fileID: 0}
+  orbitDuration: 1
+  movementMode: 0
+  ease: 4
+  duration: 1
+  moveDistanceX: 1
+  moveDistanceY: 0
+  moveDistanceZ: 1

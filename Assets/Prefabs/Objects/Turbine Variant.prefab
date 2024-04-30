@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1940294200184841137}
   - component: {fileID: 4920800307033919225}
   - component: {fileID: 1877534643974981773}
+  - component: {fileID: 740813226056690988}
   m_Layer: 0
   m_Name: Turbine Variant
   m_TagString: Untagged
@@ -151,3 +152,28 @@ CapsuleCollider:
   m_Height: 0.9948003
   m_Direction: 1
   m_Center: {x: -0.00087480457, y: 0.49505985, z: 0.009839131}
+--- !u!114 &740813226056690988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709538686140246372}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961786730c965c6439170660a541262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationMode: 1
+  rotSpeedX: 0
+  rotSpeedY: 10
+  rotSpeedZ: 0
+  orbitAxis: 0
+  orbitTarget: {fileID: 0}
+  orbitDuration: 1
+  movementMode: 0
+  ease: 4
+  duration: 1
+  moveDistanceX: 1
+  moveDistanceY: 0
+  moveDistanceZ: 1

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1360159012214084086}
   - component: {fileID: 4768239433786490544}
   - component: {fileID: 1069958511752133070}
+  - component: {fileID: -6366519696224392690}
   m_Layer: 0
   m_Name: Small_Object_1 Variant
   m_TagString: Untagged
@@ -149,3 +150,28 @@ CapsuleCollider:
   m_Height: 3.0841835
   m_Direction: 0
   m_Center: {x: 0.33232, y: 0.01, z: -0.01884699}
+--- !u!114 &-6366519696224392690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376417093700164549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961786730c965c6439170660a541262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationMode: 1
+  rotSpeedX: 500
+  rotSpeedY: 0
+  rotSpeedZ: 0
+  orbitAxis: 0
+  orbitTarget: {fileID: 0}
+  orbitDuration: 1
+  movementMode: 0
+  ease: 4
+  duration: 1
+  moveDistanceX: 1
+  moveDistanceY: 0
+  moveDistanceZ: 1

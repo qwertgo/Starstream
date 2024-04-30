@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6297594674472369398}
   - component: {fileID: 2915535239539366096}
   - component: {fileID: -5879527084318193066}
+  - component: {fileID: -8038519730403109254}
   m_Layer: 0
   m_Name: Ring Variant
   m_TagString: Untagged
@@ -120,3 +121,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionType: 1
+--- !u!114 &-8038519730403109254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504929873409252643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961786730c965c6439170660a541262e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationMode: 1
+  rotSpeedX: 200
+  rotSpeedY: 0
+  rotSpeedZ: 0
+  orbitAxis: 0
+  orbitTarget: {fileID: 0}
+  orbitDuration: 1
+  movementMode: 0
+  ease: 4
+  duration: 1
+  moveDistanceX: 1
+  moveDistanceY: 0
+  moveDistanceZ: 1
