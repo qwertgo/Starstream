@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Collider))]
 public class DestructableObject : MonoBehaviour
@@ -9,6 +10,7 @@ public class DestructableObject : MonoBehaviour
     public enum CollisionType {Static, Moveable}
     [SerializeField]CollisionType collisionType = CollisionType.Moveable;
     [SerializeField]UnityEvent onCrashEvent;
+    [SerializeField]VisualEffect crashVFX;
     Collider collider;
     Rigidbody rb;
     private void Start() 
@@ -16,7 +18,7 @@ public class DestructableObject : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
     }
-    public void OnCrash()
+    public void OnCrash(Vector3 collisionPoint)
     {
         Debug.Log($"Crashed into {gameObject.name}");
 
@@ -25,13 +27,14 @@ public class DestructableObject : MonoBehaviour
             MeshCollider meshCollider = (MeshCollider)collider;
             meshCollider.convex = true;
             meshCollider.isTrigger = true;
-
         }
         else
         {
             collider.isTrigger = true;
         }
         onCrashEvent?.Invoke();
+        VisualEffect vfx = Instantiate(crashVFX, collisionPoint, transform.rotation);
+        vfx.transform.localScale *=10;
         //do stuff with particles
         //do stuff with objects transform
     }

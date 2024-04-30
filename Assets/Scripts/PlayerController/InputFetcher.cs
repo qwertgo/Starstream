@@ -17,7 +17,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     [SerializeField] private Transform inputVisualization;
     [SerializeField] private Material greenMat;
     [SerializeField] private PlayerController playerController;
-
     private Vector3 stickStartPosition;
     private TrackerInputAction controls;
     

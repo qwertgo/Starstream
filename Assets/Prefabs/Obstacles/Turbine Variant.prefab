@@ -104,6 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionType: 1
+  onCrashEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  crashVFX: {fileID: 2282800279055959119, guid: fe2e6acee33298d4a867a10f17bc8a4c,
+    type: 3}
 --- !u!54 &4920800307033919225
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -112,7 +117,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4709538686140246372}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -147,7 +152,7 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35983917

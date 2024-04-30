@@ -8,7 +8,8 @@ public class Destructionhandler : MonoBehaviour
     {
         if(other.gameObject.TryGetComponent<DestructableObject>(out DestructableObject destructableObject))
         {
-            destructableObject.OnCrash();
+            Vector3 collisionPoint = GetContactpoint(other.contacts);
+            destructableObject.OnCrash(collisionPoint);
         }
     }
     private void OnTriggerEnter(Collider other) 
@@ -17,5 +18,10 @@ public class Destructionhandler : MonoBehaviour
         {
             collectable.OnCollect();
         }
+    }
+
+    Vector3 GetContactpoint(ContactPoint[] contacts)
+    {
+        return contacts[0].point;
     }
 }
