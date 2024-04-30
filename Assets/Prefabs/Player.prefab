@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8452869392022755962
 Transform:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 100
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9917,14 +9917,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5607675836957227251}
-  m_LocalRotation: {x: 0.6830647, y: -0.000004659949, z: 0.0000073257324, w: 0.7303579}
-  m_LocalPosition: {x: 0, y: -0.606, z: 0.466}
+  m_LocalRotation: {x: 0.7071068, y: -0.000001013279, z: -0.000001013279, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.729, z: 1}
   m_LocalScale: {x: 1.6629, y: 1.6629, z: 1.6629}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8421715383917013044}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 93.83301, y: -179.997, z: -179.996}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &8157844455280291308
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10095,7 +10095,7 @@ Transform:
   - {fileID: 2303077929383264128}
   - {fileID: 3706713414340744765}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5531728384139195004
 MonoBehaviour:
@@ -10111,8 +10111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planarVelocity: {x: 0, y: 0}
   inputMethod: 1
-  stickInputMultiplier: 5
-  calibrationTime: 1.5
+  stickInputMultiplier: 1.7
+  calibrationTime: 3
   headTracker: {fileID: 0}
   stickTracker: {fileID: 0}
   inputVisualization: {fileID: 0}
@@ -10131,12 +10131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFetcher: {fileID: 0}
-  forwardAcceleration: 20
-  maxSpeed: 70
+  forwardAcceleration: 7
+  maxSpeed: 80
   rotationSpeed: 2
   avoidTubeMinDistance: 10
-  avoidTubeMaxDistance: 100
-  lookAtDistance: 0.5
+  avoidTubeMaxDistance: 80
+  lookAtDistance: 0.75
   avoidTubeRaycastRotation: 10
   tubeLayer:
     serializedVersion: 2
