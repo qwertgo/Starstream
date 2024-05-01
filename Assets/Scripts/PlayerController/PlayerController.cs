@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public InputFetcher inputFetcher;
 
-    [SerializeField] private Difficulty baseDifficulty;
-    [SerializeField] private Difficulty harderDifficulty;
+    [SerializeField] private Difficulty[] difficulties;
     private float forwardAcceleration = 1;
     private float startSpeed = 30;
     private float startMaxSpeed = 60;
@@ -36,8 +35,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         cam = Camera.main;
+    }
 
-        ApplyDifficulty(baseDifficulty);
+    public void SelectDifficulty(int i)
+    {
+        ApplyDifficulty(difficulties[i]);
     }
 
     private void ApplyDifficulty(Difficulty difficulty)

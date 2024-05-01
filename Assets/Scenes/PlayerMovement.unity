@@ -384,6 +384,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Start
       objectReference: {fileID: 0}
+    - target: {fileID: 7072416321123222767, guid: 2c078d37bdff4774f833c6db02fea398,
+        type: 3}
+      propertyPath: scoreCanvas
+      value: 
+      objectReference: {fileID: 1603470492}
+    - target: {fileID: 7072416321123222767, guid: 2c078d37bdff4774f833c6db02fea398,
+        type: 3}
+      propertyPath: inputFetcher
+      value: 
+      objectReference: {fileID: 2064261416}
+    - target: {fileID: 7072416321123222767, guid: 2c078d37bdff4774f833c6db02fea398,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 2064261415}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -395,6 +410,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1468665882}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &761048267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761048270}
+  - component: {fileID: 761048269}
+  - component: {fileID: 761048268}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &761048268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761048267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &761048269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761048267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &761048270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761048267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1350270515
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866084501245288394, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6982160251549600699, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
         type: 3}
@@ -768,6 +856,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &1603470492 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2807888315526298066, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377156462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653629958
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,9 +1079,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
+      propertyPath: difficulties.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
       propertyPath: speedLinesParticleSystem
       value: 
       objectReference: {fileID: 1490837507}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: difficulties.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d676bd9d93053f7448443381c045e6b3,
+        type: 2}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: difficulties.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 82ae25b15924e1a4099c523d5dcdaf15,
+        type: 2}
+    - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: headTracker
@@ -1084,3 +1200,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2064261408}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2064261415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064261408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b804204b29f7161449df83faf85d1676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2064261416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064261408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad9970e27b23d041b83322b546476b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
