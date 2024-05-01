@@ -180,6 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 1705735324}
     - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
         type: 3}
+      propertyPath: youWonScreen
+      value: 
+      objectReference: {fileID: 554434245}
+    - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
+        type: 3}
       propertyPath: highscoreDisplay
       value: 
       objectReference: {fileID: 1714567721}
@@ -188,6 +193,11 @@ PrefabInstance:
       propertyPath: lastScoreDisplay
       value: 
       objectReference: {fileID: 1496741882}
+    - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 2064261415}
     - target: {fileID: 6391997141853131036, guid: 5acc7f46b0632cd4a896f53c88b12609,
         type: 3}
       propertyPath: m_RootOrder
@@ -279,6 +289,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &554434245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8065264405972353808, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377156462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &589154186
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,11 +693,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 5866084501245288394, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6982160251549600699, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
         type: 3}

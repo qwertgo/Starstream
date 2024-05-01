@@ -189,7 +189,7 @@ Transform:
   - {fileID: 7683480559922755275}
   - {fileID: 2390087530796854083}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5486812940790220138
 GameObject:
@@ -704,11 +704,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2387761871711060656, guid: 080321694d8335c40b0d6c83002a4807,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 3211286847304208733, guid: 080321694d8335c40b0d6c83002a4807,
         type: 3}
       propertyPath: gameStartDirector
@@ -763,11 +758,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6695137082434728004, guid: 080321694d8335c40b0d6c83002a4807,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8042802769296801521, guid: 080321694d8335c40b0d6c83002a4807,
         type: 3}
@@ -878,16 +868,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Start Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941847638376835352, guid: 080321694d8335c40b0d6c83002a4807,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941847638376835352, guid: 080321694d8335c40b0d6c83002a4807,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

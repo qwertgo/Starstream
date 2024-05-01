@@ -104,8 +104,6 @@ public class PlayerController : MonoBehaviour
             CheckIfHeadingInRightDirection();
             yield return null;
         }
-
-        rb.velocity = Vector3.zero;
     }
 
     private void Accelerate()
@@ -212,10 +210,6 @@ public class PlayerController : MonoBehaviour
     #region SpeedBoost
     private void StartSpeedBoost()
     {
-        // if(currentSpeedBoost != null)
-        //     StopCoroutine(currentSpeedBoost);
-        //
-        // currentSpeedBoost = SpeedBoost();
         currentSpeedBoosts.Add(SpeedBoost());
         StartCoroutine(currentSpeedBoosts.Last());
     }
@@ -280,6 +274,7 @@ public class PlayerController : MonoBehaviour
         if(!other.gameObject.tag.Equals("SpeedBoost"))
             return;
 
+        //workaround for having 2 colliders
         speedBoostCounter++;
         if(speedBoostCounter > 1)
             StartSpeedBoost();
@@ -291,4 +286,13 @@ public class PlayerController : MonoBehaviour
             speedBoostCounter--;
     }
     #endregion
+
+    public void Stop()
+    {
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+        speedLinesParticleSystem.Stop();
+        inputFetcher.enabled = false;
+        enabled = false;
+    }
 }
