@@ -1073,6 +1073,11 @@ PrefabInstance:
       objectReference: {fileID: 711972846}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
+      propertyPath: inputMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
       propertyPath: stickTracker
       value: 
       objectReference: {fileID: 4650469}
