@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.18
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5256,7 +5256,6 @@ GameObject:
   - component: {fileID: 5531728384139195004}
   - component: {fileID: 5495649657838318297}
   - component: {fileID: 2745520955274858914}
-  - component: {fileID: 8560506506758317756}
   - component: {fileID: -5249513375369727778}
   - component: {fileID: 2591975784353576104}
   - component: {fileID: 4545014517232333275}
@@ -5292,7 +5291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871050877320032958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ad9970e27b23d041b83322b546476b3, type: 3}
   m_Name: 
@@ -5303,8 +5302,6 @@ MonoBehaviour:
   calibrationTime: 3
   headTracker: {fileID: 0}
   stickTracker: {fileID: 0}
-  inputVisualization: {fileID: 0}
-  greenMat: {fileID: 2100000, guid: 45b6bc7fc0693b24b823d82c4b9c2b77, type: 2}
   playerController: {fileID: 5495649657838318297}
 --- !u!114 &5495649657838318297
 MonoBehaviour:
@@ -5319,8 +5316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputFetcher: {fileID: 0}
-  baseDifficulty: {fileID: 11400000, guid: d676bd9d93053f7448443381c045e6b3, type: 2}
-  harderDifficulty: {fileID: 11400000, guid: 82ae25b15924e1a4099c523d5dcdaf15, type: 2}
+  difficulties:
+  - {fileID: 11400000, guid: d676bd9d93053f7448443381c045e6b3, type: 2}
+  - {fileID: 11400000, guid: 82ae25b15924e1a4099c523d5dcdaf15, type: 2}
   rotationSpeed: 2
   avoidTubeMinDistance: 10
   avoidTubeMaxDistance: 100
@@ -5329,8 +5327,44 @@ MonoBehaviour:
   tubeLayer:
     serializedVersion: 2
     m_Bits: 8
+  speedBoostDuration: 2.5
+  fovAddition: 30
+  particleAddition: 100
+  boostCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.380563
+      outSlope: 6.380563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.051627386
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.12048684
+      outSlope: 0
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.13949011
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   lookAtTransform: {fileID: 3706713414340744765}
-  speedLinesParticleSystem: {fileID: 4936278414104458161}
+  speedLinesParticleSystem: {fileID: 4281588161517904902}
 --- !u!54 &2745520955274858914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5358,27 +5392,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!135 &8560506506758317756
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7871050877320032958}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 2.32
-  m_Center: {x: 0, y: 0, z: 13.74}
 --- !u!114 &-5249513375369727778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5410,8 +5423,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 7.5
-  m_Height: 40
+  m_Radius: 5
+  m_Height: 20
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 20}
 --- !u!136 &4545014517232333275
@@ -5586,9 +5599,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4147158296373947692}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4936278414104458161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9010723666579758749, guid: 188dd1deea062ac42994d312d7691bfa,
+--- !u!198 &4281588161517904902 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 209113646803192106, guid: 188dd1deea062ac42994d312d7691bfa,
     type: 3}
   m_PrefabInstance: {fileID: 4147158296373947692}
   m_PrefabAsset: {fileID: 0}

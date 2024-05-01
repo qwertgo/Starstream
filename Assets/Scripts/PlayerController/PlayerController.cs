@@ -1,40 +1,65 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public InputFetcher inputFetcher;
 
+    [Header("Base Values")]
     [SerializeField] private Difficulty[] difficulties;
-    private float forwardAcceleration = 1;
-    private float startSpeed = 30;
-    private float startMaxSpeed = 60;
-    private float timeForStartSpeed = 10;
-    private float maxSpeed = 35;
+    
     [SerializeField] private float rotationSpeed = 90;
     [SerializeField] private float avoidTubeMinDistance = 10;
     [SerializeField] private float avoidTubeMaxDistance = 100;
     [SerializeField] private float lookAtDistance = .5f;
 
     [SerializeField] private float avoidTubeRaycastRotation = 20; // how much to rotate the 4 raycast away from the forward vector
-
     [SerializeField] private LayerMask tubeLayer;
-    [SerializeField] private Transform lookAtTransform;
-    [SerializeField] private GameObject speedLinesParticleSystem;
 
+    [Header("Speed Boost")] 
+    [SerializeField] private float speedBoostDuration = 1.5f;
+    [SerializeField] private float fovAddition = 20;
+    [SerializeField] private float particleAddition = 50;
+    [SerializeField] private AnimationCurve boostCurve;
+
+    [Header("References")]
+    [SerializeField] private Transform lookAtTransform;
+    [SerializeField] private ParticleSystem speedLinesParticleSystem;
+
+    //Set by diffuculty
+    private float forwardAcceleration;
+    private float startSpeed;
+    private float startMaxSpeed;
+    private float timeForStartSpeed;
+    private float maxSpeed;
+    
+    //Not set by difficulty
     private float currentSpeed;
     private float avoidTubePercentage;
     private float wrongDirectionTimer;
     private float currentMaxSpeed;
+    private float baseFOV;
+    private float baseRateOverTime;
+
+    private int speedBoostCounter;
 
     private Rigidbody rb;
     private Camera cam;
+    private List<IEnumerator> currentSpeedBoosts = new ();
     private Vector2 avoidTubeInput;
+
+    #region Start
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        speedLinesParticleSystem.gameObject.SetActive(false);
         cam = Camera.main;
+
+        baseFOV = cam.fieldOfView;
+        baseRateOverTime = speedLinesParticleSystem.emission.rateOverTime.constant;
     }
 
     public void SelectDifficulty(int i)
@@ -52,7 +77,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Go()
     {
-        speedLinesParticleSystem.SetActive(true);
+        speedLinesParticleSystem.gameObject.SetActive(true);
         currentSpeed = startSpeed;
         rb.velocity = transform.forward * currentSpeed;
         currentMaxSpeed = startMaxSpeed;
@@ -66,7 +91,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(timeForStartSpeed);
         currentMaxSpeed = maxSpeed;
     }
+    #endregion
 
+    #region Base Update
     private IEnumerator UpdateCoroutine()
     {
         while (enabled)
@@ -104,6 +131,7 @@ public class PlayerController : MonoBehaviour
         lookAtTransform.position =
             transform.position + transform.forward * 3 + transform.rotation * inputFetcher.planarVelocity * -lookAtDistance;
     }
+    #endregion
 
     #region Avoid Tube
     //To prevent collision redirect player if he steers into the tube
@@ -162,6 +190,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Check If Heading In Right Direction
     private void CheckIfHeadingInRightDirection()
     {
         if (Vector3.Dot(Vector3.forward, transform.forward) < -.5f)
@@ -178,7 +207,58 @@ public class PlayerController : MonoBehaviour
     {
         rb.rotation = Quaternion.LookRotation(Vector3.forward, transform.up);
     }
+    #endregion
 
+    #region SpeedBoost
+    private void StartSpeedBoost()
+    {
+        // if(currentSpeedBoost != null)
+        //     StopCoroutine(currentSpeedBoost);
+        //
+        // currentSpeedBoost = SpeedBoost();
+        currentSpeedBoosts.Add(SpeedBoost());
+        StartCoroutine(currentSpeedBoosts.Last());
+    }
+    IEnumerator SpeedBoost()
+    {
+        float timeElapsed = 0;
+        var emission = speedLinesParticleSystem.emission;
+
+        while (timeElapsed < speedBoostDuration)
+        {
+            //calculate boost intensity based on time
+            float t = timeElapsed / speedBoostDuration;
+            t = boostCurve.Evaluate(t);
+
+            //apply boost intensity
+            cam.fieldOfView += t * fovAddition;
+
+            float rateOverTime = emission.rateOverTime.constant;
+            rateOverTime += t * particleAddition;
+            emission.rateOverTime = rateOverTime;
+            
+            //wait for next frame
+            yield return null;
+            timeElapsed += Time.deltaTime;
+
+            //remove boost intensity
+            cam.fieldOfView -= t * fovAddition;
+            rateOverTime -= t * particleAddition;
+            emission.rateOverTime = rateOverTime;
+        }
+
+        currentSpeedBoosts.Remove(currentSpeedBoosts.First());
+
+        if (currentSpeedBoosts.Count == 0)
+        {
+            cam.fieldOfView = baseFOV;
+            var em = speedLinesParticleSystem.emission;
+            em.rateOverTime = baseRateOverTime;
+        }
+    }
+    #endregion
+
+    #region Collision
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer != 3)
@@ -194,4 +274,21 @@ public class PlayerController : MonoBehaviour
         Vector3 newForward = Vector3.ProjectOnPlane(transform.forward, hit.normal);
         rb.rotation = Quaternion.LookRotation(newForward, transform.up);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!other.gameObject.tag.Equals("SpeedBoost"))
+            return;
+
+        speedBoostCounter++;
+        if(speedBoostCounter > 1)
+            StartSpeedBoost();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag.Equals("SpeedBoost"))
+            speedBoostCounter--;
+    }
+    #endregion
 }
