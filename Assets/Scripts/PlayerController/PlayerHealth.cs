@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using SOEvent.Sender;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     int playerHealth = 5;
     [SerializeField]List<GameObject> healthLamps;
+    [SerializeField]GameEvent playerDeadEvent;
 
     public void LoseHealth()
     {
@@ -15,6 +17,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealthDisplay()
     {
-        healthLamps[1].GetComponent<BlinkingLight>().Play;
+        healthLamps[0].GetComponent<BlinkingLights>().EnableLamp();
+        healthLamps.Remove(healthLamps[0]);
+        if(playerHealth <= 0)
+            playerDeadEvent.TriggerEvent();
     }
 }
