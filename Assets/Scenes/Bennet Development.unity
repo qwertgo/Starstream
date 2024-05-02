@@ -1076,7 +1076,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lampOffMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 9a9a9b980def16945ad241bc76d1bdf3, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
     - target: {fileID: 827723971250660148, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: overrideMaterial
@@ -1091,7 +1091,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lampOffMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 9a9a9b980def16945ad241bc76d1bdf3, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
     - target: {fileID: 1174198953091390838, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: overrideMaterial
@@ -1136,7 +1136,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lampOffMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 9a9a9b980def16945ad241bc76d1bdf3, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
     - target: {fileID: 6528984995057047669, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: overrideMaterial
@@ -1151,7 +1151,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lampOffMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 9a9a9b980def16945ad241bc76d1bdf3, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
     - target: {fileID: 7497555571696761250, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: overrideMaterial
@@ -1176,7 +1176,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lampOffMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 9a9a9b980def16945ad241bc76d1bdf3, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
     - target: {fileID: 7910989565106821555, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: overrideMaterial

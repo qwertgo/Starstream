@@ -17,6 +17,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealthDisplay()
     {
+        if(playerHealth <= 0)
+        {
+            playerDeadEvent.TriggerEvent();
+            return;
+        }
         healthLamps[0].GetComponent<BlinkingLights>().EnableLamp();
         healthLamps.Remove(healthLamps[0]);
         if(playerHealth <= 0)
