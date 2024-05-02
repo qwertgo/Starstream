@@ -14,10 +14,8 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
     [SerializeField] private Transform headTracker;
     [SerializeField] private Transform stickTracker;
-    [SerializeField] private Transform inputVisualization;
-    [SerializeField] private Material greenMat;
     [SerializeField] private PlayerController playerController;
-
+    
     private Vector3 stickStartPosition;
     private TrackerInputAction controls;
     
@@ -34,9 +32,6 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         yield return new WaitForSeconds(calibrationTime);
 
         stickStartPosition = stickTracker.position;
-
-        inputVisualization.GetComponent<MeshRenderer>().material = greenMat;
-        // GetComponentInChildren<MeshRenderer>().material = greenMat;
 
         playerController.inputFetcher = this;
         playerController.Go();

@@ -11,16 +11,32 @@ public class ScoreManager : MonoBehaviour
     [ShowNonSerializedField]int currentScore = 0;
     [ShowNonSerializedField]int lastScore;
     [ShowNonSerializedField]int highscore;
+    [SerializeField] private int scoreToWinGame;
+    
     [SerializeField]TMP_Text scoreDisplay;
     [SerializeField]TMP_Text lastScoreDisplay;
     [SerializeField]TMP_Text highscoreDisplay;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private GameObject youWonScreen;
     private void Start() 
     {
         dataFilePath = Application.persistentDataPath + "/scoreData.json";
         LoadData();
         UpdateDisplay();
     }
-    public void IncreaseScore() => currentScore++;
+
+    public void IncreaseScore()
+    {
+        currentScore++;
+        if (currentScore >= scoreToWinGame)
+        {
+            playerController.Stop();
+            youWonScreen.SetActive(true);
+            scoreDisplay.enabled = false;
+            lastScoreDisplay.enabled = false;
+            highscoreDisplay.enabled = false;
+        }
+    }
 
     [Button]
     public void OnDefeat()
@@ -29,13 +45,16 @@ public class ScoreManager : MonoBehaviour
         UpdateDisplay();
         SaveData();
     }
+    
     public void UpdateScoreDisplay() => scoreDisplay.text = $"Score: {currentScore}";
+    
     void UpdateDisplay()
     {
         scoreDisplay.text = $"Score: {currentScore}";
         lastScoreDisplay.text = $"Last Score: {lastScore}";
         highscoreDisplay.text = $"Highscore: {highscore}";
     }
+    
     void CheckScore()
     {
         if (currentScore > highscore)
@@ -44,6 +63,7 @@ public class ScoreManager : MonoBehaviour
         lastScore = currentScore;
         currentScore = 0;
     }
+    
     public void SaveData()
     {
         scoreData.lastScore = lastScore;

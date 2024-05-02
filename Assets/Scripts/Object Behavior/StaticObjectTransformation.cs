@@ -28,8 +28,9 @@ public class StaticObjectTransformation : MonoBehaviour
     [HideIf("movementMode", MovementMode.Off)][SerializeField]float moveDistanceZ = 1;
 
     Vector3 originPosition;
-    Tween tween;
-    Sequence sequence;
+    Tween rotationTween;
+    Tween movementTween;
+    Sequence movementSequence;
 
     private void Start() 
     {
@@ -60,7 +61,7 @@ public class StaticObjectTransformation : MonoBehaviour
 
     void RotateOwnAxis()
     {
-        transform.DORotate(UpdateRotation(rotSpeedX, rotSpeedY, rotSpeedZ), 1f, RotateMode.FastBeyond360)
+        rotationTween = transform.DOLocalRotate(UpdateRotation(rotSpeedX, rotSpeedY, rotSpeedZ), 10f, RotateMode.FastBeyond360)
             .SetLoops(-1, LoopType.Incremental)
             .SetEase(Ease.Linear);
     }
@@ -95,8 +96,8 @@ public class StaticObjectTransformation : MonoBehaviour
     void SetMovement()
     {
         transform.position = originPosition;
-        tween.Kill();
-        sequence.Kill();
+        movementTween.Kill();
+        movementSequence.Kill();
         switch (movementMode)
         {
             case MovementMode.Off:
@@ -112,7 +113,7 @@ public class StaticObjectTransformation : MonoBehaviour
     Vector3 UpdateMovement(float x, float y, float z) => new Vector3(x, y, z);
     void YoyoMovement()
     {
-        tween = transform.DOMove(transform.position + UpdateMovement(moveDistanceX, moveDistanceY, moveDistanceZ),duration)
+        movementTween = transform.DOMove(transform.position + UpdateMovement(moveDistanceX, moveDistanceY, moveDistanceZ),duration)
             .SetLoops(-1,LoopType.Yoyo)
             .SetEase(ease);
     }
@@ -121,13 +122,22 @@ public class StaticObjectTransformation : MonoBehaviour
         Vector3 endPosition = UpdateMovement(moveDistanceX, moveDistanceY, moveDistanceZ);
         Vector3 reverseEndPosition = -endPosition;
 
-        tween = transform.DOMove(transform.position + endPosition, duration/2).SetEase(ease).OnComplete(() =>
+        movementTween = transform.DOMove(transform.position + endPosition, duration/2).SetEase(ease).OnComplete(() =>
         {
             Sequence yoyoExtendSequence = DOTween.Sequence();
-            sequence = yoyoExtendSequence;
+            movementSequence = yoyoExtendSequence;
             yoyoExtendSequence.Append(transform.DOMove(reverseEndPosition, duration).SetEase(ease));
             yoyoExtendSequence.Append(transform.DOMove(endPosition, duration).SetEase(ease));
             yoyoExtendSequence.SetLoops(-1, LoopType.Restart);
         });
+    }
+    private void OnDestroy() 
+    {
+        if(rotationTween != null)
+            rotationTween.Kill();
+        if(movementTween != null)
+            movementTween.Kill();
+        if(movementSequence != null)
+            movementSequence.Kill();
     }
 }

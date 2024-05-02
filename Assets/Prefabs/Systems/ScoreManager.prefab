@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858001bf99be78c478ef5a872e949fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreToWinGame: 50
   scoreDisplay: {fileID: 0}
   lastScoreDisplay: {fileID: 0}
   highscoreDisplay: {fileID: 0}
+  playerController: {fileID: 0}
+  youWonScreen: {fileID: 0}
 --- !u!114 &4905228058063805338
 MonoBehaviour:
   m_ObjectHideFlags: 0
