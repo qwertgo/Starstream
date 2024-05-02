@@ -1076,7 +1076,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0df0ade5e3edb734c872b57aa1d3f401, type: 2}
+      objectReference: {fileID: 2100000, guid: 123382052b214db40ab854813acdc2bd, type: 2}
     - target: {fileID: 827723971250660148, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: lampOffMaterial
