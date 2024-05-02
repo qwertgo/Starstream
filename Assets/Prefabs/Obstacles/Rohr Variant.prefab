@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a072a6b33c26154cb443f1b580cca38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionType: 1
+  collisionType: 0
   onCrashEvent:
     m_PersistentCalls:
       m_Calls: []

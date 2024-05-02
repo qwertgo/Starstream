@@ -34,8 +34,14 @@ public class DestructableObject : MonoBehaviour
         }
         onCrashEvent?.Invoke();
         VisualEffect vfx = Instantiate(crashVFX, collisionPoint, transform.rotation);
-        vfx.transform.localScale *=10;
-        //do stuff with particles
-        //do stuff with objects transform
+        switch (collisionType)
+        {
+            case CollisionType.Static:
+                vfx.transform.localScale *=250;
+                break;
+            case CollisionType.Moveable:
+                vfx.transform.localScale *=10;
+                break;
+        }
     }
 }
