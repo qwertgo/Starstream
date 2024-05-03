@@ -5207,7 +5207,7 @@ Transform:
   - {fileID: 3645930125517344246}
   - {fileID: 5839956923034291642}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5531728384139195004
 MonoBehaviour:
@@ -5761,7 +5761,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fb99faa6642733445a864953f15b445d, type: 2}
+      objectReference: {fileID: 2100000, guid: 123382052b214db40ab854813acdc2bd, type: 2}
     - target: {fileID: -3006307204646193740, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5844,7 +5844,7 @@ MonoBehaviour:
   playOnStart: 0
   blinkingMode: 2
   lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
-  overrideMaterial: 1
+  overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
   minColor: {r: 0.54813576, g: 1, b: 0, a: 0}
@@ -5883,7 +5883,7 @@ MonoBehaviour:
   playOnStart: 0
   blinkingMode: 2
   lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
-  overrideMaterial: 1
+  overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
   minColor: {r: 0.08896621, g: 1, b: 0.013207495, a: 0}
@@ -5922,7 +5922,7 @@ MonoBehaviour:
   playOnStart: 0
   blinkingMode: 2
   lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
-  overrideMaterial: 1
+  overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
   minColor: {r: 1, g: 0.35789055, b: 0, a: 0}
@@ -5961,7 +5961,7 @@ MonoBehaviour:
   playOnStart: 0
   blinkingMode: 2
   lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
-  overrideMaterial: 1
+  overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
   minColor: {r: 1, g: 0.7769961, b: 0, a: 0}
@@ -6000,7 +6000,7 @@ MonoBehaviour:
   playOnStart: 0
   blinkingMode: 2
   lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
-  overrideMaterial: 1
+  overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
   minColor: {r: 1, g: 0.062036037, b: 0, a: 0}
@@ -6478,11 +6478,6 @@ PrefabInstance:
         type: 3}
       propertyPath: overrideCrossfadeDuration
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1739421030398286950, guid: adb2e8ae1ab748342baad1e09beb2d57,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.226
       objectReference: {fileID: 0}
     - target: {fileID: 2257254894561818869, guid: adb2e8ae1ab748342baad1e09beb2d57,
         type: 3}
