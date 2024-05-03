@@ -116,6 +116,7 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     public void OnRotation_1(InputAction.CallbackContext context)
     {
         headTracker.rotation = context.ReadValue<Quaternion>();
+        Debug.Log(headTracker.rotation.eulerAngles);
     }
 
     public void OnPosition_2(InputAction.CallbackContext context)
