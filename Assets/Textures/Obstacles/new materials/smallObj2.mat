@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ring
+  m_Name: smallObj2
   m_Shader: {fileID: -6465566751694194690, guid: bbcc89e90eaa77141a487048d09168b9,
     type: 3}
   m_Parent: {fileID: 0}
