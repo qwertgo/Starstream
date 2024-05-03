@@ -57,9 +57,9 @@ Material:
     - _NormalThreshold: 2.85
     - _OVERLAY: 1
     - _WSN_Clamp: 0.9
-    - _WSN_Strength: 10
-    - _WSN_Thickness: 0.15
-    - _WSN_Threshold: 20
+    - _WSN_Strength: 1
+    - _WSN_Thickness: 0.04
+    - _WSN_Threshold: 3.8
     m_Colors:
     - _ColorLinesFogIntensity: {r: 0, g: 0.1, b: 0, a: 0}
     - _FogColor: {r: 0.71488965, g: 0.8206724, b: 0.990566, a: 1}
