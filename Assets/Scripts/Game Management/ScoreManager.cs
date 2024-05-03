@@ -19,6 +19,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameObject youWonScreen;
     [SerializeField] private RectTransform scoreSlider;
+    [SerializeField] TextMeshProUGUI loseScreenText;
+    [SerializeField] GameObject youLooseScreen;
     private void Start() 
     {
         dataFilePath = Application.persistentDataPath + "/scoreData.json";
@@ -39,12 +41,19 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    private void UpdateLooseScreenText()
+    {
+        youLooseScreen.SetActive(true);
+        loseScreenText.text = $"Collected {currentScore} out of {scoreToWinGame} crystals";
+    }
+
     [Button]
     public void OnDefeat()
     {
-        CheckScore();
+        //CheckScore();
         UpdateDisplay();
-        SaveData();
+        UpdateLooseScreenText();
+        //SaveData();
     }
 
     public void UpdateScoreDisplay() 

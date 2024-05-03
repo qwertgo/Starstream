@@ -5172,11 +5172,11 @@ GameObject:
   - component: {fileID: 8561519761327402766}
   - component: {fileID: 5531728384139195004}
   - component: {fileID: 5495649657838318297}
-  - component: {fileID: 2745520955274858914}
   - component: {fileID: -5249513375369727778}
+  - component: {fileID: 6665225811760663260}
+  - component: {fileID: 2745520955274858914}
   - component: {fileID: 2591975784353576104}
   - component: {fileID: 4545014517232333275}
-  - component: {fileID: 6665225811760663260}
   - component: {fileID: 8733836985421392204}
   - component: {fileID: 4625103546150336711}
   m_Layer: 0
@@ -5291,6 +5291,41 @@ MonoBehaviour:
     m_RotationOrder: 4
   lookAtTransform: {fileID: 3706713414340744765}
   speedLinesParticleSystem: {fileID: 4281588161517904902}
+--- !u!114 &-5249513375369727778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871050877320032958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e914d2cc78509c4cb7e910cb423c58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCrashDestructable: {fileID: 11400000, guid: 8aab7a6c131ee83489ea438c722fe69c,
+    type: 2}
+--- !u!114 &6665225811760663260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7871050877320032958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2010771c871609b4594bc33f663e29a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLamps:
+  - {fileID: 2423431948371598693}
+  - {fileID: 1641850202128194520}
+  - {fileID: 4447172773946772559}
+  - {fileID: 2983143809404225484}
+  - {fileID: 5908591171808234930}
+  playerDeadEvent: {fileID: 11400000, guid: c5eb6d197f4aa6c4d8113b7de10a62b7, type: 2}
+  explosionVFX: {fileID: 2282800279055959119, guid: e9933a2788d4ee447bc195e2954f1611,
+    type: 3}
 --- !u!54 &2745520955274858914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5318,20 +5353,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-5249513375369727778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7871050877320032958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e914d2cc78509c4cb7e910cb423c58d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onCrashDestructable: {fileID: 11400000, guid: 8aab7a6c131ee83489ea438c722fe69c,
-    type: 2}
 --- !u!136 &2591975784353576104
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5378,27 +5399,6 @@ CapsuleCollider:
   m_Height: 16
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 5.67}
---- !u!114 &6665225811760663260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7871050877320032958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2010771c871609b4594bc33f663e29a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthLamps:
-  - {fileID: 2423431948371598693}
-  - {fileID: 1641850202128194520}
-  - {fileID: 4447172773946772559}
-  - {fileID: 2983143809404225484}
-  - {fileID: 5908591171808234930}
-  playerDeadEvent: {fileID: 11400000, guid: c5eb6d197f4aa6c4d8113b7de10a62b7, type: 2}
-  explosionVFX: {fileID: 2282800279055959119, guid: e9933a2788d4ee447bc195e2954f1611,
-    type: 3}
 --- !u!114 &8733836985421392204
 MonoBehaviour:
   m_ObjectHideFlags: 0

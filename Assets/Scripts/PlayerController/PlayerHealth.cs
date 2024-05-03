@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SOEvent.Sender;
 using UnityEngine;
 using UnityEngine.VFX;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]List<GameObject> healthLamps;
     [SerializeField]GameEvent playerDeadEvent;
     [SerializeField]VisualEffect explosionVFX;
+    
 
     public void LoseHealth()
     {

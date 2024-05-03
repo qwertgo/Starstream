@@ -50,6 +50,15 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
         }
     }
 
+    private void OnDestroy()
+    {
+        if(controls != null)
+        {
+            controls.ViveTracker.RemoveCallbacks(this);
+            controls.Disable();
+        }
+    }
+
     private IEnumerator SingleTrackerFetcher()
     {
         while (enabled)
