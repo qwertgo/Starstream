@@ -5207,7 +5207,7 @@ Transform:
   - {fileID: 3645930125517344246}
   - {fileID: 5839956923034291642}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5531728384139195004
 MonoBehaviour:
@@ -5374,7 +5374,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.12
+  m_Radius: 1.8
   m_Height: 16
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 5.67}

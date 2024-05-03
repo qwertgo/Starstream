@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58e2fa312997aba4d8b06c0ebce35b4c, type: 3}
-  m_Name: Harder Difficulty
+  m_Name: INSAAAANEEEE
   m_EditorClassIdentifier: 
   forwardAcceleration: 6
-  startSpeed: 30
-  startMaxSpeed: 60
+  startSpeed: 50
+  startMaxSpeed: 90
   timeForStartSpeed: 60
-  maxSpeed: 80
+  maxSpeed: 120
