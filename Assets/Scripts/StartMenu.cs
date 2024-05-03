@@ -24,6 +24,7 @@ public class StartMenu : MonoBehaviour
 
     public void Play()
     {
+        Debug.Log("Play");
         playerController.SelectDifficulty(dropdown.value);
         inputFetcher.enabled = true;
         scoreCanvas.enabled = true;
