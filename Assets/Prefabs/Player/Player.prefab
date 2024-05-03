@@ -5847,8 +5847,8 @@ MonoBehaviour:
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
-  minColor: {r: 0.54813576, g: 1, b: 0, a: 0}
-  maxColor: {r: 0.6692618, g: 1, b: 0, a: 0}
+  minColor: {r: 1, g: 0.8751692, b: 0, a: 1}
+  maxColor: {r: 1, g: 0.44892496, b: 0, a: 1}
   lampLights: []
   locateChildrenAsLampLights: 0
   enablingDelay: 0
@@ -5886,8 +5886,8 @@ MonoBehaviour:
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
-  minColor: {r: 0.08896621, g: 1, b: 0.013207495, a: 0}
-  maxColor: {r: 0.013220549, g: 1, b: 0, a: 0}
+  minColor: {r: 1, g: 0.8751692, b: 0, a: 1}
+  maxColor: {r: 1, g: 0.44892496, b: 0, a: 1}
   lampLights: []
   locateChildrenAsLampLights: 0
   enablingDelay: 0
@@ -5925,8 +5925,8 @@ MonoBehaviour:
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
-  minColor: {r: 1, g: 0.35789055, b: 0, a: 0}
-  maxColor: {r: 1, g: 0.25772548, b: 0, a: 0}
+  minColor: {r: 1, g: 0.8751692, b: 0, a: 1}
+  maxColor: {r: 1, g: 0.44892496, b: 0, a: 1}
   lampLights: []
   locateChildrenAsLampLights: 0
   enablingDelay: 0
@@ -5964,8 +5964,8 @@ MonoBehaviour:
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
-  minColor: {r: 1, g: 0.7769961, b: 0, a: 0}
-  maxColor: {r: 1, g: 0.7829156, b: 0, a: 0}
+  minColor: {r: 1, g: 0.8751692, b: 0, a: 1}
+  maxColor: {r: 1, g: 0.44892496, b: 0, a: 1}
   lampLights: []
   locateChildrenAsLampLights: 0
   enablingDelay: 0
@@ -6003,8 +6003,8 @@ MonoBehaviour:
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
-  minColor: {r: 1, g: 0.062036037, b: 0, a: 0}
-  maxColor: {r: 1, g: 0.036852915, b: 0, a: 0}
+  minColor: {r: 1, g: 0.8751692, b: 0, a: 1}
+  maxColor: {r: 1, g: 0.44892496, b: 0, a: 1}
   lampLights: []
   locateChildrenAsLampLights: 0
   enablingDelay: 0
