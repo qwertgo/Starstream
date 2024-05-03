@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SOEvent.Sender;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]GameEvent passLoop;
     [HideInInspector] public InputFetcher inputFetcher;
 
     [Header("Base Values")]
@@ -210,6 +212,7 @@ public class PlayerController : MonoBehaviour
     #region SpeedBoost
     private void StartSpeedBoost()
     {
+        passLoop.TriggerEvent();
         currentSpeedBoosts.Add(SpeedBoost());
         StartCoroutine(currentSpeedBoosts.Last());
     }
