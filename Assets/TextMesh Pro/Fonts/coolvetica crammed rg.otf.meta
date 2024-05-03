@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: ff70c6b09d6ce9541bdd2cd3f293cc8c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Coolvetica
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0f2da4434a4029d418d465cae28c5e36, type: 3}
+  - {fileID: 12800000, guid: 528d0cbff53ec21479cb9353800548dc, type: 3}
+  - {fileID: 12800000, guid: f28b39717850c954cae45c091e35fa7d, type: 3}
+  - {fileID: 12800000, guid: 25b75a4586ed8764cbeb5d2ec4f7eb64, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
