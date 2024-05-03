@@ -1134,16 +1134,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2591975784353576104, guid: 68dd24c0ba0533649aeae14cc7141005,
+    - target: {fileID: 226863589517439144, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
-      propertyPath: m_Height
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2591975784353576104, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e7fd8ec93cd8c4c4dbea479a5c2dd5fe, type: 2}
     - target: {fileID: 2591975784353576104, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: m_Enabled
@@ -1156,23 +1151,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4545014517232333275, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
-      propertyPath: m_Height
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4545014517232333275, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4545014517232333275, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4545014517232333275, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 5.67
       objectReference: {fileID: 0}
     - target: {fileID: 5087281809370128969, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
