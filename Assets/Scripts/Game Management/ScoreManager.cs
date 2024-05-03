@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]TMP_Text highscoreDisplay;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameObject youWonScreen;
+    [SerializeField] private RectTransform scoreSlider;
     private void Start() 
     {
         dataFilePath = Application.persistentDataPath + "/scoreData.json";
@@ -45,12 +46,19 @@ public class ScoreManager : MonoBehaviour
         UpdateDisplay();
         SaveData();
     }
+
+    public void UpdateScoreDisplay() 
+    { 
+        scoreDisplay.text = string.Format("{0:00}|{1:00}", currentScore, scoreToWinGame);
+        float percentage = (float)currentScore / scoreToWinGame;
+        scoreSlider.localScale = new Vector3(percentage, 1, 1);
     
-    public void UpdateScoreDisplay() => scoreDisplay.text = $"Score: {currentScore}";
+    }
     
+
     void UpdateDisplay()
     {
-        scoreDisplay.text = $"Score: {currentScore}";
+        UpdateScoreDisplay();
         lastScoreDisplay.text = $"Last Score: {lastScore}";
         highscoreDisplay.text = $"Highscore: {highscore}";
     }

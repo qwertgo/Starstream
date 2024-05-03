@@ -175,6 +175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
         type: 3}
+      propertyPath: scoreSlider
+      value: 
+      objectReference: {fileID: 445318347}
+    - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
+        type: 3}
       propertyPath: scoreDisplay
       value: 
       objectReference: {fileID: 1705735324}
@@ -289,6 +294,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &445318347 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8046332068398434545, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377156462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &554434245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8065264405972353808, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
@@ -418,11 +429,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Start
-      objectReference: {fileID: 0}
-    - target: {fileID: 2468901422369950951, guid: 2c078d37bdff4774f833c6db02fea398,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5740217549216646516, guid: 2c078d37bdff4774f833c6db02fea398,
         type: 3}
@@ -694,33 +700,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 704853050608414450, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 275576614516704039, guid: be65f3a35fd71ea44b3d27a1d3248116,
-        type: 2}
-    - target: {fileID: 704853050608414450, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3257035050054516576, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977769737284006714, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 275576614516704039, guid: be65f3a35fd71ea44b3d27a1d3248116,
-        type: 2}
-    - target: {fileID: 4977769737284006714, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5866084501245288394, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
         type: 3}
       propertyPath: m_Name
