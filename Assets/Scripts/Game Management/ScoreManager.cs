@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
@@ -18,14 +19,22 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]TMP_Text highscoreDisplay;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameObject youWonScreen;
+    [SerializeField] private TextMeshProUGUI youWonText;
     [SerializeField] private RectTransform scoreSlider;
     [SerializeField] TextMeshProUGUI loseScreenText;
     [SerializeField] GameObject youLooseScreen;
+
+    private float elapsedTime;
     private void Start() 
     {
         dataFilePath = Application.persistentDataPath + "/scoreData.json";
         LoadData();
         UpdateDisplay();
+    }
+
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
     }
 
     public void IncreaseScore()
@@ -38,13 +47,20 @@ public class ScoreManager : MonoBehaviour
             scoreDisplay.enabled = false;
             lastScoreDisplay.enabled = false;
             highscoreDisplay.enabled = false;
+            
+            float minutes = Mathf.Floor(elapsedTime / 60);
+            float seconds = Mathf.Floor(elapsedTime % 60);
+            youWonText.text = $"You collected all crystals in {string.Format("{0:00}:{1:00}", minutes, seconds)} minutes";
         }
     }
 
     private void UpdateLooseScreenText()
     {
         youLooseScreen.SetActive(true);
-        loseScreenText.text = $"Collected {currentScore} out of {scoreToWinGame} crystals";
+
+        float minutes = Mathf.Floor(elapsedTime / 60);
+        float seconds = Mathf.Floor(elapsedTime % 60);
+        loseScreenText.text = $"Collected {currentScore} out of {scoreToWinGame} crystals \n in {string.Format("{0:00}:{1:00}", minutes, seconds)} minutes";
     }
 
     [Button]

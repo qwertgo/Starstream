@@ -254,6 +254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
         type: 3}
+      propertyPath: youWonText
+      value: 
+      objectReference: {fileID: 1377156465}
+    - target: {fileID: 1707999921629987940, guid: 5acc7f46b0632cd4a896f53c88b12609,
+        type: 3}
       propertyPath: scoreSlider
       value: 
       objectReference: {fileID: 258290544}
@@ -885,6 +890,18 @@ GameObject:
 --- !u!114 &1377156464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1589938679590963111, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377156462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1377156465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6897860612141875709, guid: c79b8d0a69fb14b48994ef70d9fa7a97,
     type: 3}
   m_PrefabInstance: {fileID: 1377156462}
   m_PrefabAsset: {fileID: 0}
