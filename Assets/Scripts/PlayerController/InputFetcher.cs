@@ -6,9 +6,11 @@ using UnityEngine.InputSystem;
 public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerActions
 {
     private enum InputMethod {SingleViveTracker, MultipleViveTracker, Keyboard}
+    private enum EasingType {Linear, EaseOutQuad, EaseOutSine, EaseInSine, EaseOutCirc}
 
     [HideInInspector] public Vector2 planarVelocity;
     [SerializeField] private InputMethod inputMethod;
+    [SerializeField] private EasingType easingType;
     [SerializeField] private float stickInputMultiplier = 2.5f;
     [SerializeField] private float calibrationTime = 1.5f;
 
@@ -93,6 +95,29 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
         //float magnitude = planarVelocity.magnitude;
         //planarVelocity = magnitude * magnitude * planarVelocity.normalized;
+        ApplyEasing();
+    }
+
+    private void ApplyEasing()
+    {
+        float magnitude = planarVelocity.magnitude;
+        switch (easingType)
+        {
+            case EasingType.EaseInSine:
+                planarVelocity = (1 - Mathf.Cos(magnitude * Mathf.PI / 2)) * planarVelocity.normalized;
+                break;
+            case EasingType.EaseOutQuad:
+                planarVelocity = (1 - (1 - magnitude) * (1 - magnitude)) * planarVelocity.normalized;
+                break;
+            case EasingType.EaseOutSine:
+                planarVelocity = Mathf.Sin(magnitude * Mathf.PI / 2) * planarVelocity.normalized;
+                break;
+            case EasingType.EaseOutCirc:
+                planarVelocity = Mathf.Sqrt(1 - Mathf.Pow(magnitude - 1, 2)) * planarVelocity.normalized;
+                break;
+            default:
+                return;
+        }
     }
 
     //Only meant for debugging (its really bare bones)
