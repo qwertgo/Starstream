@@ -35,6 +35,14 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
+        }
     }
 
     public void IncreaseScore()
