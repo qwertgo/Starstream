@@ -5222,7 +5222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planarVelocity: {x: 0, y: 0}
-  inputMethod: 2
+  inputMethod: 1
   easingType: 0
   stickInputMultiplier: 1
   calibrationTime: 3
@@ -5291,13 +5291,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minWordOffset: 5
-  maxWordOffset: 10
-  wordScale: 2
+  minWordOffset: 6
+  maxWordOffset: 11
+  wordScale: 3
   lookAtTransform: {fileID: 3706713414340744765}
   speedLinesParticleSystem: {fileID: 4281588161517904902}
   speedBoostWords:
-  - {fileID: 6935996950391385178, guid: 1e9d956975cb59d41b179d4718e0ea67, type: 3}
+  - {fileID: 1402920714478683089, guid: dd502460a02d15d4a98ca0b5994458db, type: 3}
+  - {fileID: 1402920714478683089, guid: 8573fe474db8e7044ba646ae5114f8a5, type: 3}
+  - {fileID: 1402920714478683089, guid: 3d487c70c1d5a9346b6467f581da6acf, type: 3}
+  - {fileID: 1402920714478683089, guid: 2b5a44d0fa632b64d920fc2489d369a2, type: 3}
+  - {fileID: 1402920714478683089, guid: 72e1420212993ff4ba58f041130d3ab0, type: 3}
+  - {fileID: 1402920714478683089, guid: 1e9d956975cb59d41b179d4718e0ea67, type: 3}
+  - {fileID: 1402920714478683089, guid: 862f42bcaf04600419e2655c88cd9a46, type: 3}
+  - {fileID: 1402920714478683089, guid: ca1663e9e685b34438f3120cd92b22d5, type: 3}
 --- !u!114 &-5249513375369727778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5333,7 +5340,7 @@ MonoBehaviour:
   playerDeadEvent: {fileID: 11400000, guid: c5eb6d197f4aa6c4d8113b7de10a62b7, type: 2}
   explosionVFX: {fileID: 2282800279055959119, guid: e9933a2788d4ee447bc195e2954f1611,
     type: 3}
-  crashProtectionTime: 1.25
+  crashProtectionTime: 3
 --- !u!54 &2745520955274858914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5851,7 +5858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
@@ -5890,7 +5897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 1
   lampMaterial: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
   randomizeColors: 1
@@ -5929,7 +5936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
@@ -5968,7 +5975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
@@ -6007,7 +6014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1

@@ -543,6 +543,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6561324186369095891, guid: 2c078d37bdff4774f833c6db02fea398,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561324186369095891, guid: 2c078d37bdff4774f833c6db02fea398,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: Developer
+      objectReference: {fileID: 0}
     - target: {fileID: 7072416321123222767, guid: 2c078d37bdff4774f833c6db02fea398,
         type: 3}
       propertyPath: scoreCanvas
@@ -1237,72 +1247,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
-      propertyPath: wordScale
-      value: 3
+      propertyPath: rotationSpeed
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
-      propertyPath: maxWordOffset
-      value: 11
+      propertyPath: difficulties.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
-      propertyPath: minWordOffset
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[0]
+      propertyPath: difficulties.Array.data[3]
       value: 
-      objectReference: {fileID: 1402920714478683089, guid: dd502460a02d15d4a98ca0b5994458db,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[1]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: 8573fe474db8e7044ba646ae5114f8a5,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[2]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: 3d487c70c1d5a9346b6467f581da6acf,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[3]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: 2b5a44d0fa632b64d920fc2489d369a2,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[4]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: 72e1420212993ff4ba58f041130d3ab0,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[5]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: 1e9d956975cb59d41b179d4718e0ea67,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[6]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: 862f42bcaf04600419e2655c88cd9a46,
-        type: 3}
-    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
-        type: 3}
-      propertyPath: speedBoostWords.Array.data[7]
-      value: 
-      objectReference: {fileID: 1402920714478683089, guid: ca1663e9e685b34438f3120cd92b22d5,
-        type: 3}
+      objectReference: {fileID: 11400000, guid: 4e60a9b3f23556f4aa4471af2149b333,
+        type: 2}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: headTracker
@@ -1311,7 +1269,7 @@ PrefabInstance:
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: inputMethod
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}

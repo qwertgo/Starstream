@@ -123,12 +123,12 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate()
     {
-        Quaternion minTubeAvoidance = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed  * Vector3.up);
-        minTubeAvoidance *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed  * Vector3.right);
+        Quaternion minTubeAvoidance = Quaternion.Euler(inputFetcher.planarVelocity.x * rotationSpeed * Time.deltaTime  * Vector3.up);
+        minTubeAvoidance *= Quaternion.Euler(-inputFetcher.planarVelocity.y * rotationSpeed * Time.deltaTime * Vector3.right);
         minTubeAvoidance = rb.rotation * minTubeAvoidance;
         
-        Quaternion maxTubeAvoidance = Quaternion.Euler(avoidTubeInput.x * rotationSpeed  * Vector3.up);
-        maxTubeAvoidance *= Quaternion.Euler(-avoidTubeInput.y * rotationSpeed * Vector3.right);
+        Quaternion maxTubeAvoidance = Quaternion.Euler(avoidTubeInput.x * rotationSpeed * Time.deltaTime * Vector3.up);
+        maxTubeAvoidance *= Quaternion.Euler(-avoidTubeInput.y * rotationSpeed * Time.deltaTime * Vector3.right);
         maxTubeAvoidance = rb.rotation * maxTubeAvoidance;
 
         rb.rotation = Quaternion.Lerp(minTubeAvoidance, maxTubeAvoidance, avoidTubePercentage);

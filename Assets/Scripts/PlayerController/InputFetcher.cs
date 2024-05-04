@@ -95,7 +95,7 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
 
         //float magnitude = planarVelocity.magnitude;
         //planarVelocity = magnitude * magnitude * planarVelocity.normalized;
-        ApplyEasing();
+        //ApplyEasing();
     }
 
     private void ApplyEasing()

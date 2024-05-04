@@ -9,6 +9,7 @@ public class Collectable : MonoBehaviour
     [SerializeField]GameEvent pickedUpCollectableEvent;
     [SerializeField]UnityEvent onCollectEvent;
     [SerializeField]VisualEffect collectVFX;
+    [SerializeField] private float rotationSpeed;
     public void OnCollect()
     {
         pickedUpCollectableEvent.TriggerEvent();
@@ -16,5 +17,15 @@ public class Collectable : MonoBehaviour
         onCollectEvent?.Invoke();
         VisualEffect vfx = Instantiate(collectVFX, transform.position, transform.rotation);
         vfx.transform.localScale *= 2;
+    }
+
+    private void Start()
+    {
+        transform.rotation *= Quaternion.Euler(transform.up * Random.Range(0f,180));
+    }
+
+    private void Update()
+    {
+        transform.rotation *= Quaternion.Euler(transform.up * rotationSpeed * Time.deltaTime);    
     }
 }
