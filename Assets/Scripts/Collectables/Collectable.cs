@@ -21,11 +21,11 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        transform.rotation *= Quaternion.Euler(transform.up * Random.Range(0f,90));
+        transform.rotation *= Quaternion.Euler(Vector3.up * Random.Range(0f,360));
     }
 
     private void Update()
     {
-        transform.rotation *= Quaternion.Euler(transform.up * rotationSpeed * Time.deltaTime);    
+        transform.rotation *= Quaternion.Euler( rotationSpeed * Time.deltaTime * Vector3.up);    
     }
 }
