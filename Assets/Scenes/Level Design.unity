@@ -1237,6 +1237,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
+      propertyPath: wordScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: maxWordOffset
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: minWordOffset
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495649657838318297, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
       propertyPath: speedBoostWords.Array.size
       value: 8
       objectReference: {fileID: 0}

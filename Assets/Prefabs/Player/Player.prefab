@@ -5333,6 +5333,7 @@ MonoBehaviour:
   playerDeadEvent: {fileID: 11400000, guid: c5eb6d197f4aa6c4d8113b7de10a62b7, type: 2}
   explosionVFX: {fileID: 2282800279055959119, guid: e9933a2788d4ee447bc195e2954f1611,
     type: 3}
+  crashProtectionTime: 1.25
 --- !u!54 &2745520955274858914
 Rigidbody:
   m_ObjectHideFlags: 0

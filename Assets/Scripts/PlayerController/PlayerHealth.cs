@@ -11,13 +11,27 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]List<GameObject> healthLamps;
     [SerializeField]GameEvent playerDeadEvent;
     [SerializeField]VisualEffect explosionVFX;
+    [SerializeField] private float crashProtectionTime;
+
+    private bool protectFromCrash;
     
 
     public void LoseHealth()
     {
+        if(protectFromCrash)
+            return;
+
+        StartCoroutine(CrashProtector());
         playerHealth -= 1;
         UpdateHealthDisplay();
     }
+
+    private IEnumerator CrashProtector()
+    {
+        protectFromCrash = true;
+        yield return new WaitForSeconds(crashProtectionTime);
+        protectFromCrash = false;
+    } 
 
     public void UpdateHealthDisplay()
     {
