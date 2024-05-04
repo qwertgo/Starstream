@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SOEvent.Sender;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,10 +27,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fovAddition = 20;
     [SerializeField] private float particleAddition = 50;
     [SerializeField] private AnimationCurve boostCurve;
+    [SerializeField] private float minWordOffset = 5;
+    [SerializeField] private float maxWordOffset = 10;
+    [SerializeField] private float wordScale = 1.5f;
 
     [Header("References")]
     [SerializeField] private Transform lookAtTransform;
     [SerializeField] private ParticleSystem speedLinesParticleSystem;
+    [SerializeField] private GameObject[] speedBoostWords;
 
     //Set by diffuculty
     private float forwardAcceleration;
@@ -218,6 +223,16 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator SpeedBoost()
     {
+        GameObject speedBoostWord = speedBoostWords[Random.Range(0, speedBoostWords.Length)];
+        
+        Vector3 xyOffset = Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.up;
+        xyOffset *= Random.Range(minWordOffset, maxWordOffset);
+        xyOffset = Quaternion.LookRotation(transform.forward) * xyOffset;
+        
+        Vector3 wordPosition = transform.position + transform.forward * 50 + xyOffset;
+        speedBoostWord = Instantiate(speedBoostWord, wordPosition, transform.rotation);
+        speedBoostWord.transform.localScale *= wordScale;
+        
         float timeElapsed = 0;
         var emission = speedLinesParticleSystem.emission;
 
@@ -244,6 +259,7 @@ public class PlayerController : MonoBehaviour
             emission.rateOverTime = rateOverTime;
         }
 
+        speedBoostWord.SetActive(false);
         currentSpeedBoosts.Remove(currentSpeedBoosts.First());
 
         if (currentSpeedBoosts.Count == 0)

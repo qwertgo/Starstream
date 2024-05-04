@@ -5223,6 +5223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planarVelocity: {x: 0, y: 0}
   inputMethod: 2
+  easingType: 0
   stickInputMultiplier: 1
   calibrationTime: 3
   headTracker: {fileID: 0}
@@ -5290,8 +5291,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  minWordOffset: 5
+  maxWordOffset: 10
+  wordScale: 2
   lookAtTransform: {fileID: 3706713414340744765}
   speedLinesParticleSystem: {fileID: 4281588161517904902}
+  speedBoostWords:
+  - {fileID: 6935996950391385178, guid: 1e9d956975cb59d41b179d4718e0ea67, type: 3}
 --- !u!114 &-5249513375369727778
 MonoBehaviour:
   m_ObjectHideFlags: 0
