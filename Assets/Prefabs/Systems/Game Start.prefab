@@ -779,7 +779,7 @@ PrefabInstance:
     - target: {fileID: 1565015053197864289, guid: 080321694d8335c40b0d6c83002a4807,
         type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1565015053197864289, guid: 080321694d8335c40b0d6c83002a4807,
         type: 3}
@@ -790,6 +790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
       value: Insane
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565015053197864289, guid: 080321694d8335c40b0d6c83002a4807,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: Developer
       objectReference: {fileID: 0}
     - target: {fileID: 1565015053197864289, guid: 080321694d8335c40b0d6c83002a4807,
         type: 3}

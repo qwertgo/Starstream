@@ -5247,7 +5247,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d676bd9d93053f7448443381c045e6b3, type: 2}
   - {fileID: 11400000, guid: 82ae25b15924e1a4099c523d5dcdaf15, type: 2}
   - {fileID: 11400000, guid: 545fb6c0bb584b646b80562b2f047889, type: 2}
-  rotationSpeed: 2
+  - {fileID: 11400000, guid: 4e60a9b3f23556f4aa4471af2149b333, type: 2}
+  rotationSpeed: 150
   avoidTubeMinDistance: 10
   avoidTubeMaxDistance: 100
   lookAtDistance: 0.5

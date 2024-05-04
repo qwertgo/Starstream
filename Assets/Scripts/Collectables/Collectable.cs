@@ -21,7 +21,7 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        transform.rotation *= Quaternion.Euler(transform.up * Random.Range(0f,180));
+        transform.rotation *= Quaternion.Euler(transform.up * Random.Range(0f,90));
     }
 
     private void Update()
