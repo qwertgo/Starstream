@@ -48,6 +48,7 @@ public class BlinkingLights : MonoBehaviour
         }
         else
             lampLights.Add(gameObject.GetComponent<MeshRenderer>());
+        
         if(overrideMaterial)
         {
             for(int i = 0;i<lampLights.Count;i++)
@@ -55,7 +56,8 @@ public class BlinkingLights : MonoBehaviour
                 lampLights[i].material = lampMaterial;
             }
         }
-        if(randomizeColors&& !overrideMaterial)
+        
+        if(randomizeColors && !overrideMaterial)
         {
             for(int i = 0;i<lampLights.Count;i++)
             {
@@ -87,6 +89,7 @@ public class BlinkingLights : MonoBehaviour
         if(playOnStart)
             EnableLamp();
     }
+    
     [Button]
     public void EnableLamp()
     {

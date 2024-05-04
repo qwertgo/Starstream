@@ -27,11 +27,13 @@ public class PlayerHealth : MonoBehaviour
             VisualEffect exploVFX = Instantiate(explosionVFX,transform.position,transform.rotation);
             exploVFX.transform.localScale *= .7f;
             exploVFX.transform.localPosition = exploVFX.transform.position;
-            return;
+            // return;
         }
+        
         healthLamps[0].GetComponent<BlinkingLights>().EnableLamp();
         healthLamps.Remove(healthLamps[0]);
-        if(playerHealth <= 0)
-            playerDeadEvent.TriggerEvent();
+        
+        // if(playerHealth <= 0)
+        //     playerDeadEvent.TriggerEvent();
     }
 }
