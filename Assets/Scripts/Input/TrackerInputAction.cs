@@ -62,6 +62,15 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GamepadPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""f5f698be-2c76-4c71-9650-e6d6cf0af6e9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,28 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Rotation_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3facc05c-6607-4850-af33-ff0cdf671725"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""216cb205-60aa-41b6-a255-beef335a644e"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -120,6 +151,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         m_ViveTracker_Rotation_1 = m_ViveTracker.FindAction("Rotation_1", throwIfNotFound: true);
         m_ViveTracker_Position_2 = m_ViveTracker.FindAction("Position_2", throwIfNotFound: true);
         m_ViveTracker_Rotation_2 = m_ViveTracker.FindAction("Rotation_2", throwIfNotFound: true);
+        m_ViveTracker_GamepadPosition = m_ViveTracker.FindAction("GamepadPosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,6 +217,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_ViveTracker_Rotation_1;
     private readonly InputAction m_ViveTracker_Position_2;
     private readonly InputAction m_ViveTracker_Rotation_2;
+    private readonly InputAction m_ViveTracker_GamepadPosition;
     public struct ViveTrackerActions
     {
         private @TrackerInputAction m_Wrapper;
@@ -193,6 +226,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Rotation_1 => m_Wrapper.m_ViveTracker_Rotation_1;
         public InputAction @Position_2 => m_Wrapper.m_ViveTracker_Position_2;
         public InputAction @Rotation_2 => m_Wrapper.m_ViveTracker_Rotation_2;
+        public InputAction @GamepadPosition => m_Wrapper.m_ViveTracker_GamepadPosition;
         public InputActionMap Get() { return m_Wrapper.m_ViveTracker; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -214,6 +248,9 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
             @Rotation_2.started += instance.OnRotation_2;
             @Rotation_2.performed += instance.OnRotation_2;
             @Rotation_2.canceled += instance.OnRotation_2;
+            @GamepadPosition.started += instance.OnGamepadPosition;
+            @GamepadPosition.performed += instance.OnGamepadPosition;
+            @GamepadPosition.canceled += instance.OnGamepadPosition;
         }
 
         private void UnregisterCallbacks(IViveTrackerActions instance)
@@ -230,6 +267,9 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
             @Rotation_2.started -= instance.OnRotation_2;
             @Rotation_2.performed -= instance.OnRotation_2;
             @Rotation_2.canceled -= instance.OnRotation_2;
+            @GamepadPosition.started -= instance.OnGamepadPosition;
+            @GamepadPosition.performed -= instance.OnGamepadPosition;
+            @GamepadPosition.canceled -= instance.OnGamepadPosition;
         }
 
         public void RemoveCallbacks(IViveTrackerActions instance)
@@ -253,5 +293,6 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         void OnRotation_1(InputAction.CallbackContext context);
         void OnPosition_2(InputAction.CallbackContext context);
         void OnRotation_2(InputAction.CallbackContext context);
+        void OnGamepadPosition(InputAction.CallbackContext context);
     }
 }

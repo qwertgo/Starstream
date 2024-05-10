@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerActions
 {
-    private enum InputMethod {SingleViveTracker, MultipleViveTracker, Keyboard}
+    private enum InputMethod {SingleViveTracker, MultipleViveTracker, Gamepad, Keyboard}
     private enum EasingType {Linear, EaseOutQuad, EaseOutSine, EaseInSine, EaseOutCirc}
 
     [HideInInspector] public Vector2 planarVelocity;
@@ -19,8 +20,8 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     [SerializeField] private PlayerController playerController;
     
     private Vector3 stickStartPosition;
+    private Vector2 gamePadPosition;
     private TrackerInputAction controls;
-    
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -46,10 +47,18 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
             case InputMethod.MultipleViveTracker:
                 StartCoroutine(MultipleTrackerFetcher());
                 break;
+            case InputMethod.Gamepad:
+                StartCoroutine(GamePadFetcher());
+                break;
             default:
                 StartCoroutine(KeyboardFetcher());
                 break;
         }
+    }
+
+    private static Quaternion GyroToUnity(Quaternion q)
+    {
+        return new Quaternion(q.x, q.y, -q.z, -q.w);
     }
 
     private void OnDestroy()
@@ -136,7 +145,17 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
                 planarVelocity += Vector2.right;
             else if (Input.GetKey(KeyCode.A))
                 planarVelocity += Vector2.left;
+            
 
+            yield return null;
+        }
+    }
+
+    private IEnumerator GamePadFetcher()
+    {
+        while (enabled)
+        {
+            planarVelocity = gamePadPosition;
             yield return null;
         }
     }
@@ -161,5 +180,11 @@ public class InputFetcher : MonoBehaviour, TrackerInputAction.IViveTrackerAction
     {
         stickTracker.rotation = context.ReadValue<Quaternion>();
     }
+
+    public void OnGamepadPosition(InputAction.CallbackContext context)
+    {
+        gamePadPosition = context.ReadValue<Vector2>();
+    }
+
     #endregion
 }
