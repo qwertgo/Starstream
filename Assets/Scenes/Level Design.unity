@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7bd9b1446e9774ab8467415a595bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  superSize: 2
+  superSize: 3
 --- !u!4 &741671272
 Transform:
   m_ObjectHideFlags: 0
@@ -1270,6 +1270,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1739804852554797437, guid: 68dd24c0ba0533649aeae14cc7141005,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5531728384139195004, guid: 68dd24c0ba0533649aeae14cc7141005,
         type: 3}
       propertyPath: headTracker

@@ -42,8 +42,8 @@ Material:
     m_Floats:
     - REQUIRE_OPAQUE_TEXTURE: 1
     - _ColorClamp: 0.225
-    - _ColorStrength: 10
-    - _ColorThickness: 1.45
+    - _ColorStrength: 0.5
+    - _ColorThickness: 1.28
     - _ColorThreshhold: 0.29
     - _ColorThreshold: 0.318
     - _CutFarLines: 0.065
@@ -56,10 +56,10 @@ Material:
     - _LineWidth: 0.59
     - _NormalThreshold: 2.85
     - _OVERLAY: 1
-    - _WSN_Clamp: 0.9
-    - _WSN_Strength: 1
-    - _WSN_Thickness: 0.04
-    - _WSN_Threshold: 3.8
+    - _WSN_Clamp: 0.456
+    - _WSN_Strength: 0.5
+    - _WSN_Thickness: 1.28
+    - _WSN_Threshold: 1
     m_Colors:
     - _ColorLinesFogIntensity: {r: 0, g: 0.1, b: 0, a: 0}
     - _FogColor: {r: 0.71488965, g: 0.8206724, b: 0.990566, a: 1}
