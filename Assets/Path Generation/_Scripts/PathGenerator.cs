@@ -171,13 +171,13 @@ public class PathGenerator : MonoBehaviour
 
     void CalculateAvailablePaths() //Defines possible section types for the upcoming section
     {
-        Debug.Log("current Directions: "+ lastSection.GetDirection());
+        // Debug.Log("current Directions: "+ lastSection.GetDirection());
         
         if(pathDirection == PathDirection.Straight)
         {
             availablePathSections.Clear();
             availablePathSections.AddRange(pathSectionPrefabs);
-            Debug.Log("Path Straight");
+            // Debug.Log("Path Straight");
         }
 
         if (lastSection.GetDirection() == TransitionDirection.Left)
@@ -186,7 +186,7 @@ public class PathGenerator : MonoBehaviour
             if(!availablePathSections.Intersect(rightSections).Any())
                 availablePathSections.AddRange(rightSections);
     
-            Debug.Log("kicked left");
+            // Debug.Log("kicked left");
         }
         else if (lastSection.GetDirection() == TransitionDirection.Right)
         {
@@ -194,7 +194,7 @@ public class PathGenerator : MonoBehaviour
             if(!availablePathSections.Intersect(leftSections).Any())
                 availablePathSections.AddRange(leftSections);
             
-            Debug.Log("kicked right");
+            // Debug.Log("kicked right");
         }
     }
 //=============== STRUCTURE ===============
