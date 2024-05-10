@@ -31,7 +31,6 @@ public class Screenshot : MonoBehaviour
         {
             screenshotCount++;
             ScreenCapture.CaptureScreenshot("Assets/Resources/Screenshots/" + string.Format("{0:000}",screenshotCount) + ".png", superSize);
-            
         }
     }
 
