@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Active: 1
   passMaterial: {fileID: 2100000, guid: 4a2d06352fb335d4d851839d61bcbbe1, type: 2}
   injectionPoint: 600
-  requirements: 6
+  requirements: 4
   passIndex: 0

@@ -477,20 +477,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "05e4793983c34283a61dc08ec31c8819"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "31e2f1731f6f401cab56ad003fa2b114"
-                },
-                "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "064a869f0ce744bba0ad86a1efbaed06"
                 },
                 "m_SlotId": 2
@@ -717,7 +703,7 @@
                 "m_Node": {
                     "m_Id": "2e92c6ad9fa94e34849b821bbd6f5186"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -4145,7 +4131,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 2.0,
+        "x": 1000.0,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -6864,8 +6850,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -148.9999542236328,
-            "y": 1213.0,
+            "x": -149.0,
+            "y": 1200.0,
             "width": 128.0,
             "height": 34.0
         }

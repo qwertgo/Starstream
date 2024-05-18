@@ -922,6 +922,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6686797230553798295, guid: 9eeb19d9b34313d46827a8f1275a5ed7,
+        type: 3}
+      propertyPath: m_text
+      value: Collected 20 out of 50 crystals
+      objectReference: {fileID: 0}
     - target: {fileID: 8459313122682109130, guid: 9eeb19d9b34313d46827a8f1275a5ed7,
         type: 3}
       propertyPath: m_Pivot.x

@@ -62,6 +62,15 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GamepadPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""f5f698be-2c76-4c71-9650-e6d6cf0af6e9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,138 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Rotation_2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3facc05c-6607-4850-af33-ff0cdf671725"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""216cb205-60aa-41b6-a255-beef335a644e"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""8c016a72-e18b-4d26-b130-6b3c0ba7c819"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""c9f1ae99-38bf-4ac8-a343-301b97b113a1"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""37156ad4-09ae-4cbb-b6f6-8c1050fe2186"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a3e2cac4-ef96-4dfb-85c9-a168b47167ab"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f3f73b48-8112-4caf-9507-8aa736dbfcad"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrow Keys"",
+                    ""id"": ""651dd470-7835-400d-aa81-37c1f97fe870"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""550f6ac4-606d-463e-8b48-1b1e137d6ec8"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8a24df63-1294-448f-a506-188fda92c0a6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2e8df9a5-0cbf-4c68-9329-8eec19bd5cc1"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2d6e04ee-282c-4668-bf65-4dc09364d886"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GamepadPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -120,6 +261,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         m_ViveTracker_Rotation_1 = m_ViveTracker.FindAction("Rotation_1", throwIfNotFound: true);
         m_ViveTracker_Position_2 = m_ViveTracker.FindAction("Position_2", throwIfNotFound: true);
         m_ViveTracker_Rotation_2 = m_ViveTracker.FindAction("Rotation_2", throwIfNotFound: true);
+        m_ViveTracker_GamepadPosition = m_ViveTracker.FindAction("GamepadPosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,6 +327,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_ViveTracker_Rotation_1;
     private readonly InputAction m_ViveTracker_Position_2;
     private readonly InputAction m_ViveTracker_Rotation_2;
+    private readonly InputAction m_ViveTracker_GamepadPosition;
     public struct ViveTrackerActions
     {
         private @TrackerInputAction m_Wrapper;
@@ -193,6 +336,7 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Rotation_1 => m_Wrapper.m_ViveTracker_Rotation_1;
         public InputAction @Position_2 => m_Wrapper.m_ViveTracker_Position_2;
         public InputAction @Rotation_2 => m_Wrapper.m_ViveTracker_Rotation_2;
+        public InputAction @GamepadPosition => m_Wrapper.m_ViveTracker_GamepadPosition;
         public InputActionMap Get() { return m_Wrapper.m_ViveTracker; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -214,6 +358,9 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
             @Rotation_2.started += instance.OnRotation_2;
             @Rotation_2.performed += instance.OnRotation_2;
             @Rotation_2.canceled += instance.OnRotation_2;
+            @GamepadPosition.started += instance.OnGamepadPosition;
+            @GamepadPosition.performed += instance.OnGamepadPosition;
+            @GamepadPosition.canceled += instance.OnGamepadPosition;
         }
 
         private void UnregisterCallbacks(IViveTrackerActions instance)
@@ -230,6 +377,9 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
             @Rotation_2.started -= instance.OnRotation_2;
             @Rotation_2.performed -= instance.OnRotation_2;
             @Rotation_2.canceled -= instance.OnRotation_2;
+            @GamepadPosition.started -= instance.OnGamepadPosition;
+            @GamepadPosition.performed -= instance.OnGamepadPosition;
+            @GamepadPosition.canceled -= instance.OnGamepadPosition;
         }
 
         public void RemoveCallbacks(IViveTrackerActions instance)
@@ -253,5 +403,6 @@ public partial class @TrackerInputAction: IInputActionCollection2, IDisposable
         void OnRotation_1(InputAction.CallbackContext context);
         void OnPosition_2(InputAction.CallbackContext context);
         void OnRotation_2(InputAction.CallbackContext context);
+        void OnGamepadPosition(InputAction.CallbackContext context);
     }
 }

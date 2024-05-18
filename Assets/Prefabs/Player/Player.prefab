@@ -5207,7 +5207,7 @@ Transform:
   - {fileID: 3645930125517344246}
   - {fileID: 5839956923034291642}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5531728384139195004
 MonoBehaviour:
@@ -5222,8 +5222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planarVelocity: {x: 0, y: 0}
-  inputMethod: 2
-  stickInputMultiplier: 1.3
+  inputMethod: 1
+  easingType: 0
+  stickInputMultiplier: 1
   calibrationTime: 3
   headTracker: {fileID: 0}
   stickTracker: {fileID: 0}
@@ -5245,7 +5246,9 @@ MonoBehaviour:
   difficulties:
   - {fileID: 11400000, guid: d676bd9d93053f7448443381c045e6b3, type: 2}
   - {fileID: 11400000, guid: 82ae25b15924e1a4099c523d5dcdaf15, type: 2}
-  rotationSpeed: 2
+  - {fileID: 11400000, guid: 545fb6c0bb584b646b80562b2f047889, type: 2}
+  - {fileID: 11400000, guid: 4e60a9b3f23556f4aa4471af2149b333, type: 2}
+  rotationSpeed: 150
   avoidTubeMinDistance: 10
   avoidTubeMaxDistance: 100
   lookAtDistance: 0.5
@@ -5289,8 +5292,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  minWordOffset: 6
+  maxWordOffset: 11
+  wordScale: 3
   lookAtTransform: {fileID: 3706713414340744765}
   speedLinesParticleSystem: {fileID: 4281588161517904902}
+  speedBoostWords:
+  - {fileID: 1402920714478683089, guid: dd502460a02d15d4a98ca0b5994458db, type: 3}
+  - {fileID: 1402920714478683089, guid: 8573fe474db8e7044ba646ae5114f8a5, type: 3}
+  - {fileID: 1402920714478683089, guid: 3d487c70c1d5a9346b6467f581da6acf, type: 3}
+  - {fileID: 1402920714478683089, guid: 2b5a44d0fa632b64d920fc2489d369a2, type: 3}
+  - {fileID: 1402920714478683089, guid: 72e1420212993ff4ba58f041130d3ab0, type: 3}
+  - {fileID: 1402920714478683089, guid: 1e9d956975cb59d41b179d4718e0ea67, type: 3}
+  - {fileID: 1402920714478683089, guid: 862f42bcaf04600419e2655c88cd9a46, type: 3}
+  - {fileID: 1402920714478683089, guid: ca1663e9e685b34438f3120cd92b22d5, type: 3}
 --- !u!114 &-5249513375369727778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5326,6 +5341,7 @@ MonoBehaviour:
   playerDeadEvent: {fileID: 11400000, guid: c5eb6d197f4aa6c4d8113b7de10a62b7, type: 2}
   explosionVFX: {fileID: 2282800279055959119, guid: e9933a2788d4ee447bc195e2954f1611,
     type: 3}
+  crashProtectionTime: 3
 --- !u!54 &2745520955274858914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5395,10 +5411,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.8
-  m_Height: 16
+  m_Radius: 1
+  m_Height: 12
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 5.67}
+  m_Center: {x: 0, y: -0.8, z: 6}
 --- !u!114 &8733836985421392204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5720,7 +5736,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
@@ -5761,17 +5777,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 123382052b214db40ab854813acdc2bd, type: 2}
+      objectReference: {fileID: 2100000, guid: e7fd8ec93cd8c4c4dbea479a5c2dd5fe, type: 2}
     - target: {fileID: -3006307204646193740, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
     - target: {fileID: -2390050938128575856, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
     - target: {fileID: 919132149155446097, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_Name
@@ -5781,17 +5797,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
     - target: {fileID: 7645720255015258180, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
     - target: {fileID: 9196513456588261146, guid: 21cc0edfe85038f45aee3b5473a66703,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
+      objectReference: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5843,7 +5859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
@@ -5882,9 +5898,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
-  overrideMaterial: 0
-  lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
+  overrideMaterial: 1
+  lampMaterial: {fileID: 2100000, guid: 8f3a2ba820621c94d977aa911a4844d3, type: 2}
   randomizeColors: 1
   minColor: {r: 1, g: 0.8751692, b: 0, a: 1}
   maxColor: {r: 1, g: 0.44892496, b: 0, a: 1}
@@ -5921,7 +5937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
@@ -5960,7 +5976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1
@@ -5999,7 +6015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnStart: 0
   blinkingMode: 2
-  lampOffMaterial: {fileID: 2100000, guid: 4c744a1dd46ff1a4191f4c628506fc3c, type: 2}
+  lampOffMaterial: {fileID: 2100000, guid: c312c235c7d564a43b58dd862156eff5, type: 2}
   overrideMaterial: 0
   lampMaterial: {fileID: 2100000, guid: 5a7798f48fe1f4d4cb28bb0c3dfa80be, type: 2}
   randomizeColors: 1

@@ -11,13 +11,27 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]List<GameObject> healthLamps;
     [SerializeField]GameEvent playerDeadEvent;
     [SerializeField]VisualEffect explosionVFX;
+    [SerializeField] private float crashProtectionTime;
+
+    private bool protectFromCrash;
     
 
     public void LoseHealth()
     {
+        if(protectFromCrash)
+            return;
+
+        StartCoroutine(CrashProtector());
         playerHealth -= 1;
         UpdateHealthDisplay();
     }
+
+    private IEnumerator CrashProtector()
+    {
+        protectFromCrash = true;
+        yield return new WaitForSeconds(crashProtectionTime);
+        protectFromCrash = false;
+    } 
 
     public void UpdateHealthDisplay()
     {
@@ -27,11 +41,13 @@ public class PlayerHealth : MonoBehaviour
             VisualEffect exploVFX = Instantiate(explosionVFX,transform.position,transform.rotation);
             exploVFX.transform.localScale *= .7f;
             exploVFX.transform.localPosition = exploVFX.transform.position;
-            return;
+            // return;
         }
+        
         healthLamps[0].GetComponent<BlinkingLights>().EnableLamp();
         healthLamps.Remove(healthLamps[0]);
-        if(playerHealth <= 0)
-            playerDeadEvent.TriggerEvent();
+        
+        // if(playerHealth <= 0)
+        //     playerDeadEvent.TriggerEvent();
     }
 }
